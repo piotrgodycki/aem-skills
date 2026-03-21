@@ -18,6 +18,7 @@ aem-skills/
 │   └── rules/             # 52 rule files organized by category
 │       ├── build-pipeline/        # 9 files — Webpack, Cloud Manager, RDE, CTT, testing
 │       ├── component-development/ # 10 files — Core Components, dialogs, DAM, UE, Style System
+│       ├── backend/               # Backend patterns
 │       ├── java/                  # 5 files — Sling Models, servlets, OSGi, workflows
 │       ├── analytics-tracking/    # 2 files — ACDL, personalization
 │       ├── touch-ui/              # 12 files — Coral UI, dialogs, RTE, security, ACLs

@@ -1,8 +1,13 @@
 # AEM Best Practices — Claude Code Skills
 
-> **Senior expert full-stack AEM developer** perspective. Production-grade patterns, not tutorials.
+![AEM as a Cloud Service](https://img.shields.io/badge/AEM_as_a_Cloud_Service-FF0000?style=for-the-badge&logo=adobe&logoColor=white)
+![Edge Delivery Services](https://img.shields.io/badge/Edge_Delivery_Services-FF0000?style=for-the-badge&logo=adobe&logoColor=white)
+![skills.sh](https://img.shields.io/badge/skills.sh-Compatible-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Claude Code](https://img.shields.io/badge/Claude_Code-Compatible-D97757?style=for-the-badge&logo=anthropic&logoColor=white)
 
-Two Claude Code skills with **69 rule files** covering full-stack AEM as a Cloud Service development.
+> Written from a **senior expert full-stack AEM developer** perspective with deep knowledge of Sling, OSGi, JCR, and the Adobe ecosystem. Every rule delivers production-grade, enterprise-ready patterns — not beginner tutorials. Each file includes correct and incorrect code examples side by side, an anti-patterns section, and impact ratings (Critical / High / Medium).
+
+Claude Code skills with **69 rule files** — battle-tested solutions from large-scale AEM as a Cloud Service implementations covering backend (Sling Models, servlets, OSGi, workflows), frontend (Webpack, ClientLibs, Core Components, Style System), authoring (Touch UI, Universal Editor, dialogs, policies), headless (GraphQL, Content Fragments, SPA/headless SDKs), and infrastructure (Cloud Manager, Dispatcher, CDN, Dynamic Media, performance optimization).
 
 ## Skills
 
