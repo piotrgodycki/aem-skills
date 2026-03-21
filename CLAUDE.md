@@ -4,7 +4,7 @@
 
 This repository contains two Claude Code skills for Adobe Experience Manager (AEM) development:
 
-- **`aem-best-practices/`** — 52 rule files for full-stack AEM as a Cloud Service
+- **`aem-best-practices/`** — 67 rule files for full-stack AEM as a Cloud Service (includes React, Preact, and Vanilla JS component patterns)
 - **`aem-eds-frontend-best-practices/`** — 17 rule files for AEM Edge Delivery Services
 
 ## Project Structure
@@ -15,7 +15,7 @@ aem-skills/
 ├── README.md              # Project overview, file tree, installation
 ├── aem-best-practices/
 │   ├── SKILL.md           # Skill manifest (name, description, allowed-tools, rules list)
-│   └── rules/             # 52 rule files organized by category
+│   └── rules/             # 67 rule files organized by category
 │       ├── build-pipeline/        # 9 files — Webpack, Cloud Manager, RDE, CTT, testing
 │       ├── component-development/ # 10 files — Core Components, dialogs, DAM, UE, Style System
 │       ├── backend/               # Backend patterns
@@ -25,7 +25,11 @@ aem-skills/
 │       ├── layout/                # 1 file — Responsive grid
 │       ├── headless/              # 6 files — GraphQL, CFs, XFs, SDKs, Commerce/CIF
 │       ├── multi-tenant/          # 1 file — MSM, i18n
-│       └── performance/           # 6 files — CDN, Dispatcher, Dynamic Media, queries
+│       ├── performance/           # 6 files — CDN, Dispatcher, Dynamic Media, queries
+│       └── frontend/              # 15 files — framework-specific component patterns
+│           ├── react/             # 7 files — feature architecture, context, hooks, storage, GraphQL, perf, testing
+│           ├── preact/            # 3 files — setup, Signals, islands/lightweight components
+│           └── vanilla/           # 5 files — Web Components, modules, DOM, storage, events
 └── aem-eds-frontend-best-practices/
     ├── SKILL.md           # Skill manifest
     └── rules/             # 17 rule files organized by category
@@ -93,10 +97,6 @@ Introductory paragraph.
 ```bash
 # Via skills.sh
 npx skills add <your-github-username>/aem-skills
-
-# Or manually via symlink
-ln -s /path/to/aem-skills/aem-best-practices ~/.claude/skills/aem-best-practices
-ln -s /path/to/aem-skills/aem-eds-frontend-best-practices ~/.claude/skills/aem-eds-frontend-best-practices
 ```
 
 ## Sources

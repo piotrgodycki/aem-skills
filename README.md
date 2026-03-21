@@ -1,4 +1,4 @@
-# AEM Best Practices — Claude Code Skills
+# AEM Best Practices Skills
 
 ![AEM as a Cloud Service](https://img.shields.io/badge/AEM_as_a_Cloud_Service-FF0000?style=for-the-badge&logo=adobe&logoColor=white)
 ![Edge Delivery Services](https://img.shields.io/badge/Edge_Delivery_Services-FF0000?style=for-the-badge&logo=adobe&logoColor=white)
@@ -7,11 +7,11 @@
 
 > Written from a **senior expert full-stack AEM developer** perspective with deep knowledge of Sling, OSGi, JCR, and the Adobe ecosystem. Every rule delivers production-grade, enterprise-ready patterns — not beginner tutorials. Each file includes correct and incorrect code examples side by side, an anti-patterns section, and impact ratings (Critical / High / Medium).
 
-Claude Code skills with **69 rule files** — battle-tested solutions from large-scale AEM as a Cloud Service implementations covering backend (Sling Models, servlets, OSGi, workflows), frontend (Webpack, ClientLibs, Core Components, Style System), authoring (Touch UI, Universal Editor, dialogs, policies), headless (GraphQL, Content Fragments, SPA/headless SDKs), and infrastructure (Cloud Manager, Dispatcher, CDN, Dynamic Media, performance optimization).
+Claude Code skills with **84 rule files** — battle-tested solutions from large-scale AEM as a Cloud Service implementations covering backend (Sling Models, servlets, OSGi, workflows), frontend (Webpack, ClientLibs, Core Components, Style System), authoring (Touch UI, Universal Editor, dialogs, policies), headless (GraphQL, Content Fragments, SPA/headless SDKs), infrastructure (Cloud Manager, Dispatcher, CDN, Dynamic Media, performance optimization), and framework-specific component patterns (React, Preact, Vanilla JS).
 
 ## Skills
 
-### 1. `aem-best-practices` — Full-Stack AEM (52 rules)
+### 1. `aem-best-practices` — Full-Stack AEM (67 rules)
 
 ```
 aem-best-practices/
@@ -78,6 +78,25 @@ aem-best-practices/
         ├── dynamic-media-assets.md              # Smart crops, WOID, responsive
         ├── query-optimization.md                # QueryBuilder, Oak indexes
         └── dispatcher-caching.md                # Cache rules, SDI, statfileslevel
+    └── frontend/                              # Framework-Specific Components (15)
+        ├── react/                             # React (7)
+        │   ├── feature-driven-architecture.md # Domain/feature folders, barrel exports, lazy modules
+        │   ├── context-state-management.md    # Context, useReducer, compound providers, persisted state
+        │   ├── custom-hooks-aem.md            # useContentFragment, useGraphQL, useAuthorMode, useBreakpoint
+        │   ├── storage-persistence.md         # localStorage, IndexedDB, cookies, URL state, cross-tab sync
+        │   ├── data-fetching-graphql.md       # AEM Headless SDK, TanStack Query/SWR, ISR, pagination
+        │   ├── performance-optimization.md    # memo, useMemo, useCallback, useTransition, code splitting, CWV
+        │   └── testing-react-aem.md           # Testing Library, MSW, Storybook, author mode tests
+        ├── preact/                            # Preact (3)
+        │   ├── preact-aem-setup.md            # Webpack aliases, compat layer, HTL integration, islands
+        │   ├── signals-state.md               # Signals, computed, effects, signal stores, performance
+        │   └── lightweight-components.md      # Islands architecture, progressive enhancement, partial hydration
+        └── vanilla/                           # Vanilla JS (5)
+            ├── web-components-aem.md          # Custom Elements, Shadow DOM, slots, Coral UI interop
+            ├── module-architecture.md         # ES modules, dynamic import, auto-init, code splitting
+            ├── dom-patterns.md                # DocumentFragment, MutationObserver, event delegation, XSS safety
+            ├── storage-utilities.md           # Namespaced storage, TTL, quota management, fallback chain
+            └── event-architecture.md          # Custom events, AbortController, pub/sub, ACDL integration
 ```
 
 ### 2. `aem-eds-frontend-best-practices` — Edge Delivery Services (17 rules)
