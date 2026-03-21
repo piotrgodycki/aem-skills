@@ -4,8 +4,8 @@
 
 This repository contains two Claude Code skills for Adobe Experience Manager (AEM) development:
 
-- **`aemaacs/`** — `aem-best-practices` — 52 rule files for full-stack AEM as a Cloud Service
-- **`aem-eds/`** — `aem-eds-frontend-best-practices` — 17 rule files for AEM Edge Delivery Services
+- **`aem-best-practices/`** — 52 rule files for full-stack AEM as a Cloud Service
+- **`aem-eds-frontend-best-practices/`** — 17 rule files for AEM Edge Delivery Services
 
 ## Project Structure
 
@@ -13,8 +13,8 @@ This repository contains two Claude Code skills for Adobe Experience Manager (AE
 aem-skills/
 ├── CLAUDE.md              # This file
 ├── README.md              # Project overview, file tree, installation
-├── aemaacs/
-│   ├── SKILL.md           # Skill manifest (name, description, tools, rules list)
+├── aem-best-practices/
+│   ├── SKILL.md           # Skill manifest (name, description, allowed-tools, rules list)
 │   └── rules/             # 52 rule files organized by category
 │       ├── build-pipeline/        # 9 files — Webpack, Cloud Manager, RDE, CTT, testing
 │       ├── component-development/ # 10 files — Core Components, dialogs, DAM, UE, Style System
@@ -25,7 +25,7 @@ aem-skills/
 │       ├── headless/              # 6 files — GraphQL, CFs, XFs, SDKs, Commerce/CIF
 │       ├── multi-tenant/          # 1 file — MSM, i18n
 │       └── performance/           # 6 files — CDN, Dispatcher, Dynamic Media, queries
-└── aem-eds/
+└── aem-eds-frontend-best-practices/
     ├── SKILL.md           # Skill manifest
     └── rules/             # 17 rule files organized by category
         ├── block-development/     # 11 files — blocks, JS, CSS, testing, SW, WC, edge, 3rd-party
@@ -90,9 +90,12 @@ Introductory paragraph.
 ## Installation (for users)
 
 ```bash
-# Symlink into Claude Code skills directory
-ln -s /path/to/aem-skills/aemaacs ~/.claude/skills/aemaacs-frontend-best-practices
-ln -s /path/to/aem-skills/aem-eds ~/.claude/skills/aem-eds-frontend-best-practices
+# Via skills.sh
+npx skills add <your-github-username>/aem-skills
+
+# Or manually via symlink
+ln -s /path/to/aem-skills/aem-best-practices ~/.claude/skills/aem-best-practices
+ln -s /path/to/aem-skills/aem-eds-frontend-best-practices ~/.claude/skills/aem-eds-frontend-best-practices
 ```
 
 ## Sources

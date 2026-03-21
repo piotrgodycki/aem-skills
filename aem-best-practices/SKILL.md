@@ -6,7 +6,7 @@ metadata:
   author: community
   version: "4.0.0"
   argument-hint: <file-or-pattern>
-tools: Read, Glob, Grep, Bash, Edit, Write
+allowed-tools: Read Glob Grep Bash Edit Write
 ---
 
 # AEMaaCS — Full-Stack Development Best Practices

@@ -9,7 +9,7 @@ Two Claude Code skills with **69 rule files** covering full-stack AEM as a Cloud
 ### 1. `aem-best-practices` — Full-Stack AEM (52 rules)
 
 ```
-aemaacs/
+aem-best-practices/
 ├── SKILL.md
 └── rules/
     ├── build-pipeline/                          # Build, Workflow, Testing, Config (9)
@@ -78,7 +78,7 @@ aemaacs/
 ### 2. `aem-eds-frontend-best-practices` — Edge Delivery Services (17 rules)
 
 ```
-aem-eds/
+aem-eds-frontend-best-practices/
 ├── SKILL.md
 └── rules/
     ├── block-development/                       # Blocks & Code (11)
@@ -107,8 +107,12 @@ aem-eds/
 ## Installation
 
 ```bash
-ln -s /path/to/aem-skills/aemaacs ~/.claude/skills/aem-best-practices
-ln -s /path/to/aem-skills/aem-eds ~/.claude/skills/aem-eds-frontend-best-practices
+# Via skills.sh
+npx skills add <your-github-username>/aem-skills
+
+# Or manually via symlink
+ln -s /path/to/aem-skills/aem-best-practices ~/.claude/skills/aem-best-practices
+ln -s /path/to/aem-skills/aem-eds-frontend-best-practices ~/.claude/skills/aem-eds-frontend-best-practices
 ```
 
 ## Sources

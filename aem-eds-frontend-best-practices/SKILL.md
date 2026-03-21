@@ -6,7 +6,7 @@ metadata:
   author: community
   version: "4.0.0"
   argument-hint: <file-or-pattern>
-tools: Read, Glob, Grep, Bash, Edit, Write
+allowed-tools: Read Glob Grep Bash Edit Write
 ---
 
 # AEM Edge Delivery Services — Frontend Best Practices
@@ -15,7 +15,7 @@ tools: Read, Glob, Grep, Bash, Edit, Write
 
 17 rule files for frontend development with Adobe Experience Manager Edge Delivery Services (EDS).
 
-> **Not for traditional AEMaaCS full-stack** — if you are working with `ui.frontend/`, Webpack, ClientLibs, HTL, or Granite UI dialogs, use the `aemaacs-frontend-best-practices` skill instead.
+> **Not for traditional AEMaaCS full-stack** — if you are working with `ui.frontend/`, Webpack, ClientLibs, HTL, or Granite UI dialogs, use the `aem-best-practices` skill instead.
 
 ## Rules
 
