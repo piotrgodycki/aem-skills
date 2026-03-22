@@ -1,6 +1,6 @@
 ---
 name: aem-best-practices
-description: AEM as a Cloud Service (AEMaaCS) full-stack development guidelines — 69 rule files from a senior expert full-stack AEM developer perspective. Covers ui.frontend Webpack, Core Components BEM, ClientLibs, HTL, Sling Models, Lombok, Style System, Touch UI (Coral UI 3, page editor, RTE, editConfig, dialogs, overlays, policies, custom widgets, DataSources), Universal Editor, component architecture, accessibility/SEO, DAM/Assets (microservices, processing profiles, Asset Compute, metadata), Adobe Client Data Layer (ACDL), personalization/targeting, security, user management/ACLs, responsive grid, GraphQL, Content/Experience Fragments, headless SDK (React/Next.js/Vue/Svelte), OpenAPI/Events, Commerce/CIF, multi-tenant/MSM, Cloud Manager CI/CD, RDE, Content Transfer Tool, CDN (Fastly, BYOCDN, WAF, ESI), Dispatcher caching, Dynamic Media, query optimization, frontend performance, testing, Adaptive Forms, AEM Workflows, Sling Servlets, OSGi services/schedulers, migration patterns, React (feature-driven architecture, Context, hooks, storage, GraphQL, performance optimization, testing), Preact (Signals, islands, lightweight components), and Vanilla JS (Web Components, ES modules, DOM patterns, events, storage).
+description: AEM as a Cloud Service (AEMaaCS) full-stack development guidelines — 72 rule files from a senior expert full-stack AEM developer perspective. Covers ui.frontend Webpack, Core Components BEM, ClientLibs, HTL, Sling Models, Lombok, Style System, Touch UI (Coral UI 3, page editor, RTE, editConfig, dialogs, overlays, policies, custom widgets, DataSources), Universal Editor, component architecture, accessibility/SEO, DAM/Assets (microservices, processing profiles, Asset Compute, metadata), Adobe Client Data Layer (ACDL), personalization/targeting, security, user management/ACLs, responsive grid, GraphQL, Content/Experience Fragments, headless SDK (React/Next.js/Vue/Svelte), OpenAPI/Events, Commerce/CIF, multi-tenant/MSM, Cloud Manager CI/CD, RDE, Content Transfer Tool, CDN (Fastly, BYOCDN, WAF, ESI), Dispatcher caching, Dynamic Media, query optimization, frontend performance, testing, Adaptive Forms, AEM Workflows, Sling Servlets, OSGi services/schedulers, migration patterns, React (feature-driven architecture, Context, hooks, storage, GraphQL, performance optimization, testing), Preact (Signals, islands, lightweight components), Vanilla JS (Web Components, ES modules, DOM patterns, events, storage), Alpine.js (reactive HTL, stores), Tailwind CSS (AEM integration, BEM coexistence, Style System), SCSS domain-driven structure, fe-aem-server (local HTL dev), and third-party backend integrations (HTTP clients, circuit breakers, caching).
 license: MIT
 metadata:
   author: community
@@ -13,7 +13,7 @@ allowed-tools: Read Glob Grep Bash Edit Write
 
 > **You are a senior expert full-stack AEM developer.** Apply these 67 rules with deep understanding of AEM internals, OSGi, Sling, JCR, and the full Adobe stack. When writing code, follow enterprise-grade patterns with proper error handling, logging, and performance awareness. Prioritize maintainability, Core Component reuse, and Cloud Service compatibility.
 
-69 rule files covering every aspect of full-stack development on Adobe Experience Manager as a Cloud Service.
+72 rule files covering every aspect of full-stack development on Adobe Experience Manager as a Cloud Service.
 
 > **Not for Edge Delivery Services** — if you are working with EDS blocks (`/blocks/`), vanilla JS/CSS, or the XWalk boilerplate, use the `aem-eds-frontend-best-practices` skill instead.
 
@@ -90,8 +90,11 @@ allowed-tools: Read Glob Grep Bash Edit Write
 - `query-optimization.md` — QueryBuilder, JCR-SQL2, Oak indexes, slow query detection, N+1 prevention
 - `dispatcher-caching.md` — Cache rules, statfileslevel, filters, TTL, flush agents, SDI, personalization, debugging
 
-### Frontend — SCSS (`rules/frontend/`)
-- `scss-domain-structure.md` — Domain-driven SCSS folder structure, design tokens, domain-scoped variables, barrel imports, Core Component overrides, responsive mixins, multi-tenant theming, Webpack integration
+### Frontend — CSS & Dev Tools (`rules/frontend/`)
+- `scss-domain-structure.md` — Domain-driven SCSS folder structure, global variables, barrel imports, Core Component overrides, responsive mixins, multi-tenant theming, Webpack integration
+- `tailwind-aem.md` — Tailwind CSS in AEM: PostCSS/Webpack setup, prefix strategy for BEM coexistence, HTL usage, Style System integration, `@tailwindcss/typography` for RTE, CSS custom properties bridge, production purging
+- `alpine-js-aem.md` — Alpine.js for AEM: installation via ClientLib, reactive HTL patterns (accordion, tabs, search, modal), Alpine.store for cross-component state, plugin ecosystem, author mode handling
+- `fe-aem-server.md` — `@kele23/fe-aem-server` local HTL dev server: setup, mock content JSON, Webpack/Vite integration, project structure mirroring AEM JCR, development workflow, limitations
 
 ### Frontend — React (`rules/frontend/react/`)
 - `feature-driven-architecture.md` — Domain/feature folder structure, barrel exports, co-located tests/styles, lazy-loaded feature modules, shared vs feature-specific code separation
