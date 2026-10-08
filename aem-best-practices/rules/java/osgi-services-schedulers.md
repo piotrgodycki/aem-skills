@@ -493,6 +493,22 @@ public class ProductApiHealthCheck implements HealthCheck {
 
 ---
 
+### AEM 6.5 / Classic differences
+
+OSGi DS annotations, `@Reference`, `@Designate`, Sling Schedulers, Sling Jobs, `ResourceChangeListener` and health checks are **identical** on 6.5 — this is the most portable layer. Watch these deltas:
+
+| Concern | AEMaaCS | AEM 6.5 on-prem |
+|---|---|---|
+| Web Console | Locked down / unavailable in prod | Felix console at `/system/console` available (secure it) |
+| OSGi config source | Repo configs + Cloud Manager env vars | Repo configs (`/apps/.../config.<runmode>`) + Web Console; **no env-var injection** |
+| Secrets | Cloud Manager secrets (`$[secret:...]`) | **Crypto Support** (`com.adobe.granite.crypto`) for encrypted values |
+| Run modes | `author`/`publish` fixed by Adobe | `author`/`publish` + custom (`samplecontent`, `dev`, `prod`) you set via `-r` |
+| Cluster safety for Jobs | Always clustered semantics | Only if MongoMK cluster; TarMK single-node has no failover |
+
+**Correct — 6.5 secret via Crypto Support:** store the encrypted blob in an OSGi config, decrypt in-service with `CryptoSupport.unprotect(...)`.
+
+**Incorrect — `$[env:MY_SECRET]` on 6.5:** Cloud Manager env-var/secret placeholders are not resolved on-prem; the literal string is injected.
+
 ### 9. Anti-Patterns
 
 #### Deprecated Admin Session

@@ -7,11 +7,11 @@
 
 > Written from a **senior expert full-stack AEM developer** perspective with deep knowledge of Sling, OSGi, JCR, and the Adobe ecosystem. Every rule delivers production-grade, enterprise-ready patterns — not beginner tutorials. Each file includes correct and incorrect code examples side by side, an anti-patterns section, and impact ratings (Critical / High / Medium).
 
-Claude Code skills with **84 rule files** — battle-tested solutions from large-scale AEM as a Cloud Service implementations covering backend (Sling Models, servlets, OSGi, workflows), frontend (Webpack, ClientLibs, Core Components, Style System), authoring (Touch UI, Universal Editor, dialogs, policies), headless (GraphQL, Content Fragments, SPA/headless SDKs), infrastructure (Cloud Manager, Dispatcher, CDN, Dynamic Media, performance optimization), and framework-specific component patterns (React, Preact, Vanilla JS).
+Claude Code skills with **84 rule files** — battle-tested solutions from large-scale AEM implementations covering backend (Sling Models, servlets, OSGi, workflows), frontend (Webpack, ClientLibs, Core Components, Style System, Vanilla JS / Alpine / Tailwind), authoring (Touch UI, Universal Editor, dialogs, policies), headless (GraphQL, Content Fragments, SPA/headless SDKs), infrastructure (Cloud Manager, Dispatcher, CDN, Dynamic Media, performance optimization), a maintenance workflow for existing repos (spec-driven development, audit/quality, core/fe/backend/third-party), and AEM Edge Delivery Services. AEMaaCS-first, with **AEM 6.5 / Classic** differences annotated throughout.
 
 ## Skills
 
-### 1. `aem-best-practices` — Full-Stack AEM (67 rules)
+### 1. `aem-best-practices` — Full-Stack AEM (AEMaaCS + 6.5/Classic notes)
 
 ```
 aem-best-practices/
@@ -38,12 +38,13 @@ aem-best-practices/
     │   ├── forms-adaptive.md                    # Adaptive Forms v3, theming
     │   ├── dam-asset-patterns.md                # Asset microservices, processing profiles, metadata
     │   └── universal-editor-aemaacs.md          # UE instrumentation, data-aue-*, models, CORS
-    ├── java/                                    # Java & Backend (5)
+    ├── java/                                    # Java & Backend (6)
     │   ├── sling-models-frontend.md             # Annotations, injection, JSON export
     │   ├── lombok-best-practices.md             # @Getter/@Slf4j with Sling Models
     │   ├── aem-workflows.md                     # WorkflowProcess, launchers, transient, payloads
     │   ├── sling-servlets.md                    # Resource types, URL decomposition, CSRF
-    │   └── osgi-services-schedulers.md          # DS annotations, Sling Jobs, event handlers
+    │   ├── osgi-services-schedulers.md          # DS annotations, Sling Jobs, event handlers
+    │   └── third-party-integrations.md          # Pooled HTTP clients, circuit breaker, response caching
     ├── analytics-tracking/                      # Analytics & Personalization (2)
     │   ├── adobe-data-layer.md                  # ACDL push from Java/HTL/JS, GTM bridge
     │   └── personalization-targeting.md          # ContextHub, Adobe Target, flicker
@@ -78,28 +79,27 @@ aem-best-practices/
         ├── dynamic-media-assets.md              # Smart crops, WOID, responsive
         ├── query-optimization.md                # QueryBuilder, Oak indexes
         └── dispatcher-caching.md                # Cache rules, SDI, statfileslevel
-    └── frontend/                              # Framework-Specific Components (15)
-        ├── react/                             # React (7)
-        │   ├── feature-driven-architecture.md # Domain/feature folders, barrel exports, lazy modules
-        │   ├── context-state-management.md    # Context, useReducer, compound providers, persisted state
-        │   ├── custom-hooks-aem.md            # useContentFragment, useGraphQL, useAuthorMode, useBreakpoint
-        │   ├── storage-persistence.md         # localStorage, IndexedDB, cookies, URL state, cross-tab sync
-        │   ├── data-fetching-graphql.md       # AEM Headless SDK, TanStack Query/SWR, ISR, pagination
-        │   ├── performance-optimization.md    # memo, useMemo, useCallback, useTransition, code splitting, CWV
-        │   └── testing-react-aem.md           # Testing Library, MSW, Storybook, author mode tests
-        ├── preact/                            # Preact (3)
-        │   ├── preact-aem-setup.md            # Webpack aliases, compat layer, HTL integration, islands
-        │   ├── signals-state.md               # Signals, computed, effects, signal stores, performance
-        │   └── lightweight-components.md      # Islands architecture, progressive enhancement, partial hydration
-        └── vanilla/                           # Vanilla JS (5)
-            ├── web-components-aem.md          # Custom Elements, Shadow DOM, slots, Coral UI interop
-            ├── module-architecture.md         # ES modules, dynamic import, auto-init, code splitting
-            ├── dom-patterns.md                # DocumentFragment, MutationObserver, event delegation, XSS safety
-            ├── storage-utilities.md           # Namespaced storage, TTL, quota management, fallback chain
-            └── event-architecture.md          # Custom events, AbortController, pub/sub, ACDL integration
+    ├── frontend/                            # AEM-native Frontend (7)
+    │   ├── scss-domain-structure.md         # Domain-driven SCSS, overrides, mixins, Webpack
+    │   ├── tailwind-aem.md                  # Tailwind in AEM, BEM coexistence, Style System
+    │   ├── alpine-js-aem.md                 # Alpine.js reactive HTL, stores, author mode
+    │   ├── fe-aem-server.md                 # Local HTL dev server (@kele23/fe-aem-server)
+    │   └── vanilla/                         # Vanilla JS (3)
+    │       ├── web-components-aem.md        # Custom Elements, Shadow DOM, slots, Coral UI interop
+    │       ├── module-architecture.md       # ES modules, dynamic import, auto-init, code splitting
+    │       └── event-architecture.md        # Custom events, AbortController, pub/sub, ACDL integration
+    └── maintenance/                         # Existing-repo maintenance & spec-driven workflow (6)
+        ├── spec-driven-development.md       # Spec -> acceptance criteria -> implement -> verify loop
+        ├── codebase-audit-quality.md        # Repo onboarding, conventions, quality gates, tech-debt map
+        ├── core-platform-maintenance.md     # Core Components / AEM version / OSGi dependency upgrades
+        ├── frontend-maintenance.md          # ClientLib/bundle hygiene, CSS debt, Core Component upgrades
+        ├── backend-maintenance.md           # Sling Model/servlet refactors, deprecations, perf regressions
+        └── third-party-maintenance.md       # Dependency upgrades, CVE triage, integration drift
 ```
 
-### 2. `aem-eds-frontend-best-practices` — Edge Delivery Services (17 rules)
+> React/Preact app-architecture rules were removed in v6 — AEM full-stack frontend is HTL + ClientLibs + progressive-enhancement JS. For SPA/headless React see `headless/headless-sdk-frameworks.md` and `component-development/spa-editor.md`.
+
+### 2. `aem-eds-frontend-best-practices` — Edge Delivery Services (18 rules)
 
 ```
 aem-eds-frontend-best-practices/
@@ -107,17 +107,18 @@ aem-eds-frontend-best-practices/
 └── rules/
     ├── block-development/                       # Blocks & Code (11)
     │   ├── eds-block-development.md             # decorate(), CSS scoping
-    │   ├── eds-content-modeling.md              # JSON definitions, models
+    │   ├── eds-content-modeling.md              # 4 canonical models, JSON definitions, field types, validation
     │   ├── vanilla-js-patterns.md               # DOM, events, async, components
     │   ├── css-best-practices.md                # Custom properties, nesting, modern CSS
     │   ├── eds-experimentation.md               # A/B testing, audiences, RUM
     │   ├── eds-forms-sheets.md                  # Forms, spreadsheet data
-    │   ├── eds-testing.md                       # Jest, Lighthouse CI, Playwright
+    │   ├── eds-testing.md                       # Vitest, Lighthouse CI, Playwright
     │   ├── service-workers.md                   # Offline fallback, caching, background sync
     │   ├── web-components.md                    # Custom elements, Shadow DOM, slots
     │   ├── edge-compute.md                      # Cloudflare Workers, auth, A/B at edge
     │   └── third-party-integrations.md          # Analytics, chat, payment, consent, facades
-    ├── authoring/                               # Authoring (3)
+    ├── authoring/                               # Authoring (4)
+    │   ├── content-driven-development.md        # Content-first, reuse-first (Block Collection/Party), content-as-contract
     │   ├── universal-editor.md                  # data-aue-* attributes
     │   ├── eds-standard-blocks.md               # Adobe blocks + UE JSON models
     │   └── eds-sidekick-seo.md                  # Sidekick, SEO, redirects

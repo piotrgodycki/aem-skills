@@ -4,8 +4,8 @@
 
 This repository contains two Claude Code skills for Adobe Experience Manager (AEM) development:
 
-- **`aem-best-practices/`** — 67 rule files for full-stack AEM as a Cloud Service (includes React, Preact, and Vanilla JS component patterns)
-- **`aem-eds-frontend-best-practices/`** — 17 rule files for AEM Edge Delivery Services
+- **`aem-best-practices/`** — 66 rule files for full-stack AEM. AEMaaCS-first, with **AEM 6.5 / Classic** differences annotated. Includes Vanilla JS / Alpine / Tailwind frontend and a `maintenance/` workflow (spec-driven development) for existing repos.
+- **`aem-eds-frontend-best-practices/`** — 18 rule files for AEM Edge Delivery Services
 
 ## Project Structure
 
@@ -15,26 +15,24 @@ aem-skills/
 ├── README.md              # Project overview, file tree, installation
 ├── aem-best-practices/
 │   ├── SKILL.md           # Skill manifest (name, description, allowed-tools, rules list)
-│   └── rules/             # 67 rule files organized by category
+│   └── rules/             # 66 rule files organized by category
 │       ├── build-pipeline/        # 9 files — Webpack, Cloud Manager, RDE, CTT, testing
 │       ├── component-development/ # 10 files — Core Components, dialogs, DAM, UE, Style System
-│       ├── backend/               # Backend patterns
-│       ├── java/                  # 5 files — Sling Models, servlets, OSGi, workflows
+│       ├── java/                  # 6 files — Sling Models, Lombok, servlets, OSGi, workflows, 3rd-party
 │       ├── analytics-tracking/    # 2 files — ACDL, personalization
 │       ├── touch-ui/              # 12 files — Coral UI, dialogs, RTE, security, ACLs
 │       ├── layout/                # 1 file — Responsive grid
 │       ├── headless/              # 6 files — GraphQL, CFs, XFs, SDKs, Commerce/CIF
 │       ├── multi-tenant/          # 1 file — MSM, i18n
 │       ├── performance/           # 6 files — CDN, Dispatcher, Dynamic Media, queries
-│       └── frontend/              # 15 files — framework-specific component patterns
-│           ├── react/             # 7 files — feature architecture, context, hooks, storage, GraphQL, perf, testing
-│           ├── preact/            # 3 files — setup, Signals, islands/lightweight components
-│           └── vanilla/           # 5 files — Web Components, modules, DOM, storage, events
+│       ├── frontend/              # 7 files — AEM-native FE (SCSS, Tailwind, Alpine, fe-aem-server, Vanilla JS/Web Components)
+│       │   └── vanilla/           # 3 files — Web Components, modules, events
+│       └── maintenance/           # 6 files — spec-driven dev, audit/quality, core/fe/backend/3rd-party upkeep
 └── aem-eds-frontend-best-practices/
     ├── SKILL.md           # Skill manifest
-    └── rules/             # 17 rule files organized by category
+    └── rules/             # 18 rule files organized by category
         ├── block-development/     # 11 files — blocks, JS, CSS, testing, SW, WC, edge, 3rd-party
-        ├── authoring/             # 3 files — Universal Editor, standard blocks, Sidekick/SEO
+        ├── authoring/             # 4 files — Content-Driven Dev, Universal Editor, standard blocks, Sidekick/SEO
         ├── multi-tenant/          # 1 file — Repoless, theming
         └── performance/           # 2 files — RUM/TTFB, CDN config
 ```

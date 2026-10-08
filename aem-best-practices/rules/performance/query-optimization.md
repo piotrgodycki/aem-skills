@@ -300,6 +300,30 @@ Access `/system/console/jmx` and check:
 
 ---
 
+### AEM 6.5 / Classic differences
+
+The query engine (JCR-SQL2, QueryBuilder, Oak indexes), index types (`property`, `lucene`, `ordered`) and the "no traversal" rule are **the same**. The difference is **how index definitions are deployed and reindexed**.
+
+| Concern | AEMaaCS | AEM 6.5 on-prem |
+|---|---|---|
+| Index deployment | Custom index package with `-custom-N` suffix; Adobe merges & reindexes | Deploy `/oak:index/...` nodes directly in a package |
+| Reindex trigger | Managed by the deploy pipeline | Set `reindex=true` on the index node, or run `oak-run` offline reindex |
+| Persistence | Managed (cloud storage) | **TarMK** (single-node, segment store) or **MongoMK** (clustered) — perf profiles differ |
+| Tooling | Developer Console query performance tool | `oak-run` (reindex, `console`, consistency-check), Query Performance in Tools |
+| Async lag | Adobe-managed | You monitor async index lane lag (`/system/console/jmx` → IndexStats) |
+
+**Correct — 6.5 custom index node:**
+```
+/oak:index/myProject-byType
+  jcr:primaryType: oak:QueryIndexDefinition
+  type: lucene
+  async: async
+  reindex: true     # flips to false after reindex completes
+  indexRules/nt:unstructured/properties/sling:resourceType ...
+```
+
+**Incorrect — the Cloud `-custom` suffix convention on 6.5:** on-prem you own the index node directly; there is no Adobe merge step, so manage `reindex` and versioning yourself.
+
 ### 5. Common Anti-Patterns
 
 #### Traversal Queries (No Index)

@@ -313,6 +313,28 @@ git push origin HEAD:main -f   # Force push to main (coordinate with team)
 
 ---
 
+### AEM 6.5 / Classic differences
+
+Everything above is AEMaaCS-native. On **AEM 6.5 on-prem** (and partly **AMS — Adobe Managed Services**) the deployment model is fundamentally different.
+
+| Concern | AEMaaCS | AEM 6.5 on-prem | AMS (Managed Services) |
+|---|---|---|---|
+| CI/CD | Adobe-managed Cloud Manager pipelines (git push) | Your own Jenkins/GitLab/Bamboo → `mvn clean install` → package deploy | Cloud Manager, targets 6.5 instances |
+| Artifact install | Pipeline builds + deploys to the cloud image | `mvn -PautoInstallPackage` / Package Manager UI / `curl` to `/crx/packmgr` | Cloud Manager deploy step |
+| Quality gates | Enforced (code quality, security, perf) — block deploy | Not enforced — run SonarQube / `aem-rules` yourself | Enforced via Cloud Manager |
+| Env vars / secrets | Cloud Manager env variables + secrets service | OSGi configs per run mode; encrypt secrets with **Crypto Support** | Cloud Manager env variables |
+| Release strategy | Blue-green, automatic rollback | Rolling restart of author + each publish; manual rollback (reinstall prior package) | Managed rolling deploy |
+| Dispatcher | Deployed via pipeline (immutable image) | Hand-deployed to Apache `httpd` + `mod_dispatcher` | Managed by Adobe ops |
+
+**Correct — 6.5 install from CI:**
+```bash
+mvn -B clean install -PautoInstallPackagePublish \
+  -Daem.host=publish1.example.com -Daem.port=4503 \
+  -Dvault.user=deploy -Dvault.password="$AEM_DEPLOY_PW"
+```
+
+**Incorrect — assuming Cloud-only features on 6.5:** there is no secrets service, no auto-scaling, no git-triggered Adobe pipeline, and no immutable image. Never point `aio aem rde` at a 6.5 instance — RDE is Cloud-only (see `rapid-dev-environments.md`).
+
 ### 8. Anti-Patterns
 
 #### Skipping Quality Gates

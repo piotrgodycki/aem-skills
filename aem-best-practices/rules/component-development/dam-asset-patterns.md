@@ -346,6 +346,23 @@ Access:
 
 ---
 
+### AEM 6.5 / Classic differences
+
+Asset processing is one of the biggest AEMaaCS-vs-6.5 gaps — most of this file (Asset Microservices, Asset Compute workers, web-optimized delivery) is **Cloud-only**.
+
+| Capability | AEMaaCS | AEM 6.5 on-prem |
+|---|---|---|
+| Rendition generation | Asset Microservices (offloaded, serverless) | **DAM Update Asset** workflow on-instance (ImageMagick / `CommandLineProcess` / Camera Raw) |
+| Custom processing | Asset Compute worker (App Builder / Node.js) | Custom workflow step / media handler in Java |
+| Processing profiles | Processing Profiles UI (microservices) | Workflow model + run-mode config; no Processing Profiles |
+| Web-optimized delivery | `AssetDelivery` API / WOID (`_dynamicUrl`) | Not available — use Dynamic Media (Scene7/Hybrid) or named renditions |
+| Smart Tags | Built-in (Adobe Sensei) | Requires Smart Content Service connector + IMS |
+| Dynamic Media | DM native (Cloud) | DM-Scene7 (hybrid) or DM-OnPrem (Hybrid) add-on |
+
+**Correct — 6.5 rendition via DAM Update Asset step:** customise the *DAM Update Asset* workflow model, add a Process step wrapping ImageMagick/`CommandLineProcess`, scope with run modes.
+
+**Incorrect — Asset Compute worker on 6.5:** Asset Compute, Processing Profiles and `AssetDelivery`/WOID do not exist on-prem. Heavy processing runs **on the author instance** on 6.5 — size the box and tune the workflow queue accordingly.
+
 ### 9. Anti-Patterns
 
 #### Custom DAM Workflows on Cloud Service

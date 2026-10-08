@@ -1,6 +1,6 @@
 ---
 name: aem-eds-frontend-best-practices
-description: AEM Edge Delivery Services (EDS) frontend development guidelines from a senior expert AEM developer perspective — 17 rule files. Covers block development with vanilla JS/CSS, CSS best practices (custom properties, nesting, container queries, modern CSS), vanilla JS patterns (DOM, events, async, common components), content modeling JSON, standard Adobe blocks with Universal Editor models, experimentation/A/B testing, forms and spreadsheet data, Sidekick/SEO, testing, multi-site/repoless, CDN configuration, performance (RUM, TTFB, HTTP/3, capo.js, cookie consent via GTM, Speculation Rules, bfcache), service workers (offline, caching, background sync), Web Components (custom elements, Shadow DOM, slots), edge compute (Cloudflare Workers, authentication, A/B at edge, API proxy), and third-party integrations (analytics, chat, payment, consent, facade pattern).
+description: AEM Edge Delivery Services (EDS) frontend development guidelines from a senior expert AEM developer perspective — 18 rule files. Covers block development with vanilla JS/CSS, CSS best practices (custom properties, nesting, container queries, modern CSS), vanilla JS patterns (DOM, events, async, common components), content modeling JSON, standard Adobe blocks with Universal Editor models, experimentation/A/B testing, forms and spreadsheet data, Sidekick/SEO, testing, multi-site/repoless, CDN configuration, performance (RUM, TTFB, HTTP/3, capo.js, cookie consent via GTM, Speculation Rules, bfcache), service workers (offline, caching, background sync), Web Components (custom elements, Shadow DOM, slots), edge compute (Cloudflare Workers, authentication, A/B at edge, API proxy), and third-party integrations (analytics, chat, payment, consent, facade pattern).
 license: MIT
 metadata:
   author: community
@@ -13,7 +13,7 @@ allowed-tools: Read Glob Grep Bash Edit Write
 
 > **You are a senior expert full-stack AEM developer.** Apply these 17 rules with deep understanding of web performance, vanilla JS, modern CSS, and the EDS architecture. Write clean, performant code that targets 100 Lighthouse AND excellent RUM p75 values. Prioritize simplicity — no frameworks, no build tools, no preprocessors.
 
-17 rule files for frontend development with Adobe Experience Manager Edge Delivery Services (EDS).
+18 rule files for frontend development with Adobe Experience Manager Edge Delivery Services (EDS).
 
 > **Not for traditional AEMaaCS full-stack** — if you are working with `ui.frontend/`, Webpack, ClientLibs, HTL, or Granite UI dialogs, use the `aem-best-practices` skill instead.
 
@@ -26,13 +26,14 @@ allowed-tools: Read Glob Grep Bash Edit Write
 - `css-best-practices.md` — Why no SCSS/Tailwind, CSS custom properties, native nesting, modern layout (Grid, Flexbox, container queries, clamp()), :has(), @layer, color-mix(), scroll-driven animations, EDS file patterns
 - `eds-experimentation.md` — Experimentation framework, A/B testing via metadata, audience personalization, RUM conversion tracking
 - `eds-forms-sheets.md` — Form block, field types, validation, spreadsheet submission, Google Sheets/Excel data source, JSON feeds
-- `eds-testing.md` — Jest/JSDOM block testing, DOM fixtures, Lighthouse CI, AEM CLI, visual regression, Playwright, RUM
+- `eds-testing.md` — Vitest/jsdom block testing (Adobe standard), DOM fixtures, Lighthouse CI, AEM CLI, visual regression, Playwright, RUM
 - `service-workers.md` — Service worker registration, caching strategies (network-first, cache-first), offline fallback, background sync for forms, cache versioning, EDS push invalidation compatibility
 - `web-components.md` — Custom elements, Shadow DOM, slots, CSS custom properties theming, ::part() styling, accessibility in Shadow DOM, when to use vs vanilla JS blocks
 - `edge-compute.md` — BYOCDN edge workers (Cloudflare Workers, Akamai EdgeWorkers), A/B testing at edge (no flicker), geolocation routing, authentication, API proxy, header manipulation
 - `third-party-integrations.md` — Loading strategy (eager/lazy/delayed), analytics (GA4, Adobe), chat widgets, social embeds (facade pattern), maps, payment (Stripe), search (Algolia), consent management (GTM consent mode)
 
 ### Authoring (`rules/authoring/`)
+- `content-driven-development.md` — Content-first philosophy, reuse-first loop (Block Collection → Block Party), test-content-before-code, content-as-contract, aem.live docs awareness
 - `universal-editor.md` — `data-aue-*` attributes, item types, instrumentation patterns, container setup
 - `eds-standard-blocks.md` — All Adobe boilerplate blocks (Hero, Columns, Cards, Tabs, Accordion, Carousel, Teaser, Fragment, Video, Header, Footer, Breadcrumb, Search) with HTML, JS/CSS, and complete Universal Editor JSON models
 - `eds-sidekick-seo.md` — Sidekick config, custom plugins, block library, SEO metadata, Open Graph, JSON-LD, sitemap, redirects
@@ -53,6 +54,8 @@ allowed-tools: Read Glob Grep Bash Edit Write
 5. **Modern CSS first** — custom properties, nesting, container queries, :has()
 6. **Cookie consent via GTM in `delayed.js`** — zero LCP impact
 7. **Speculation Rules + bfcache** — prerender on hover, no `unload` listeners
-8. **Reference standard blocks first** — check `eds-standard-blocks.md` before building custom
-9. **Push invalidation** — EDS purges CDN on publish, no stale content
-10. **Performance is non-negotiable** — 100 Lighthouse AND good RUM p75
+8. **Content-first, reuse-first** — find/author real content before coding; check the Block Collection (then Block Party) before building a custom block (`authoring/content-driven-development.md`)
+9. **Reference standard blocks first** — check `eds-standard-blocks.md` and the 4 canonical content models before building custom
+10. **Vitest + jsdom for unit tests** — Adobe's EDS standard; don't introduce Jest
+11. **Push invalidation** — EDS purges CDN on publish, no stale content
+12. **Performance is non-negotiable** — 100 Lighthouse AND good RUM p75

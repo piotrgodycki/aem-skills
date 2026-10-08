@@ -726,6 +726,23 @@ Traffic filter rules with `alert: true` trigger notifications in Actions Center 
 
 ---
 
+### AEM 6.5 / Classic differences
+
+This entire file (Adobe-managed Fastly, `cdn.yaml` config-as-code, traffic filter rules, Adobe WAF, CDN log forwarding) is **AEMaaCS-only**. On **AEM 6.5 on-prem** there is no Adobe CDN.
+
+| Concern | AEMaaCS | AEM 6.5 on-prem / AMS |
+|---|---|---|
+| CDN | Adobe-managed Fastly + optional BYOCDN | Fully BYOCDN (CloudFront / Akamai / Fastly / Cloudflare) — or AMS-provided CDN |
+| Config as code | `cdn.yaml` deployed via Cloud Manager | Configured in your CDN's own console/API |
+| WAF / traffic filters | Adobe WAF + traffic filter rules (YAML) | Your CDN's WAF, or `mod_security` on the Dispatcher's Apache |
+| CDN logs | Adobe log forwarding | Your CDN's logging |
+| Custom domains / TLS | Managed in Cloud Manager | Terminate at your LB / CDN |
+| Cache invalidation | Push invalidation on publish | Your CDN purge API, triggered from flush agents / post-publish hooks |
+
+**Correct — 6.5 edge:** put your own CDN in front of the Dispatcher, set surrogate TTLs there, and wire a publish-time purge (CDN API call from a custom workflow or flush-agent webhook).
+
+**Incorrect — committing `cdn.yaml` on a 6.5 project:** Adobe does not read it on-prem; it has no effect.
+
 ### Quick Reference: CDN Configuration Checklist
 
 1. Place `cdn.yaml` under `config/` in your Git repository

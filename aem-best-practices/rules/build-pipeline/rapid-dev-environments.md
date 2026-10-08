@@ -235,6 +235,22 @@ aio aem:rde:logs --target=author --include=com.myproject
 
 ---
 
+### AEM 6.5 / Classic differences
+
+**RDE (Rapid Development Environment) is Cloud-only.** There is no `aio aem rde` for 6.5. The on-prem fast-iteration loop is built from local tooling instead.
+
+| Need | AEMaaCS | AEM 6.5 on-prem |
+|---|---|---|
+| Disposable cloud env | RDE (`aio aem rde install`) | Local AEM quickstart jar (author + publish) |
+| Hot bundle deploy | `aio aem rde install -t osgi-bundle` | `mvn -PautoInstallBundle` / Felix console / bnd `-runbundles` |
+| Hot content/config deploy | `aio aem rde install` (package) | `mvn -PautoInstallPackage`, `vlt` (vault-cli), repo sync |
+| Front-end file sync | RDE + proxy | `aemfed` / `repo` tool / IntelliJ–VSCode AEM sync for live `/apps` push |
+| Java hot-swap | Redeploy bundle | JVM hot-swap or **JRebel** against the local quickstart |
+
+**Correct — 6.5 inner loop:** run a local quickstart, `mvn -PautoInstallBundle -pl core` for backend, `aemfed`/`repo` for `/apps` front-end sync, JRebel for method-body changes.
+
+**Incorrect — `aio aem rde` against 6.5:** the RDE commands target Cloud environments only and will not connect to a 6.5 instance.
+
 ### 9. Anti-Patterns
 
 #### Using RDE as Permanent Dev

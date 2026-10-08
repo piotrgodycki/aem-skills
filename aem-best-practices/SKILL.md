@@ -1,6 +1,6 @@
 ---
 name: aem-best-practices
-description: AEM as a Cloud Service (AEMaaCS) full-stack development guidelines — 72 rule files from a senior expert full-stack AEM developer perspective. Covers ui.frontend Webpack, Core Components BEM, ClientLibs, HTL, Sling Models, Lombok, Style System, Touch UI (Coral UI 3, page editor, RTE, editConfig, dialogs, overlays, policies, custom widgets, DataSources), Universal Editor, component architecture, accessibility/SEO, DAM/Assets (microservices, processing profiles, Asset Compute, metadata), Adobe Client Data Layer (ACDL), personalization/targeting, security, user management/ACLs, responsive grid, GraphQL, Content/Experience Fragments, headless SDK (React/Next.js/Vue/Svelte), OpenAPI/Events, Commerce/CIF, multi-tenant/MSM, Cloud Manager CI/CD, RDE, Content Transfer Tool, CDN (Fastly, BYOCDN, WAF, ESI), Dispatcher caching, Dynamic Media, query optimization, frontend performance, testing, Adaptive Forms, AEM Workflows, Sling Servlets, OSGi services/schedulers, migration patterns, React (feature-driven architecture, Context, hooks, storage, GraphQL, performance optimization, testing), Preact (Signals, islands, lightweight components), Vanilla JS (Web Components, ES modules, DOM patterns, events, storage), Alpine.js (reactive HTL, stores), Tailwind CSS (AEM integration, BEM coexistence, Style System), SCSS domain-driven structure, fe-aem-server (local HTL dev), and third-party backend integrations (HTTP clients, circuit breakers, caching).
+description: AEM as a Cloud Service (AEMaaCS) full-stack development guidelines, with AEM 6.5 / Classic differences annotated — 66 rule files from a senior expert full-stack AEM developer perspective. Covers ui.frontend Webpack, Core Components BEM, ClientLibs, HTL, Sling Models, Lombok, Style System, Touch UI (Coral UI 3, page editor, RTE, editConfig, dialogs, overlays, policies, custom widgets, DataSources), Universal Editor, component architecture, accessibility/SEO, DAM/Assets (microservices, processing profiles, Asset Compute, metadata), Adobe Client Data Layer (ACDL), personalization/targeting, security, user management/ACLs, responsive grid, GraphQL, Content/Experience Fragments, headless SDK (React/Next.js/Vue/Svelte), OpenAPI/Events, Commerce/CIF, multi-tenant/MSM, Cloud Manager CI/CD, RDE, Content Transfer Tool, CDN (Fastly, BYOCDN, WAF, ESI), Dispatcher caching, Dynamic Media, query optimization, frontend performance, testing, Adaptive Forms, AEM Workflows, Sling Servlets, OSGi services/schedulers, migration patterns, Vanilla JS (Web Components, ES modules, event architecture), Alpine.js (reactive HTL, stores), Tailwind CSS (AEM integration, BEM coexistence, Style System), SCSS domain-driven structure, fe-aem-server (local HTL dev), third-party backend integrations (HTTP clients, circuit breakers, caching), and a maintenance workflow for existing repos (spec-driven development, codebase audit/quality, core/frontend/backend/third-party maintenance). Not for Edge Delivery Services — use aem-eds-frontend-best-practices for EDS blocks.
 license: MIT
 metadata:
   author: community
@@ -11,9 +11,9 @@ allowed-tools: Read Glob Grep Bash Edit Write
 
 # AEMaaCS — Full-Stack Development Best Practices
 
-> **You are a senior expert full-stack AEM developer.** Apply these 67 rules with deep understanding of AEM internals, OSGi, Sling, JCR, and the full Adobe stack. When writing code, follow enterprise-grade patterns with proper error handling, logging, and performance awareness. Prioritize maintainability, Core Component reuse, and Cloud Service compatibility.
+> **You are a senior expert full-stack AEM developer.** Apply these 66 rules with deep understanding of AEM internals, OSGi, Sling, JCR, and the full Adobe stack. When writing code, follow enterprise-grade patterns with proper error handling, logging, and performance awareness. Prioritize maintainability, Core Component reuse, and Cloud Service compatibility.
 
-72 rule files covering every aspect of full-stack development on Adobe Experience Manager as a Cloud Service.
+66 rule files covering every aspect of full-stack development on Adobe Experience Manager as a Cloud Service. Rules target **AEMaaCS** by default; where behaviour differs on **AEM 6.5 / Classic (on-prem/AMS)** the relevant file carries an `### AEM 6.5 / Classic differences` section.
 
 > **Not for Edge Delivery Services** — if you are working with EDS blocks (`/blocks/`), vanilla JS/CSS, or the XWalk boilerplate, use the `aem-eds-frontend-best-practices` skill instead.
 
@@ -91,31 +91,29 @@ allowed-tools: Read Glob Grep Bash Edit Write
 - `dispatcher-caching.md` — Cache rules, statfileslevel, filters, TTL, flush agents, SDI, personalization, debugging
 
 ### Frontend — CSS & Dev Tools (`rules/frontend/`)
+
+> **Scope note:** AEM full-stack frontend is HTL + ClientLibs + progressive-enhancement JS. These rules cover the AEM-native toolchain only. For SPA/headless React, see `headless/headless-sdk-frameworks.md` and `component-development/spa-editor.md`. For React SPAs decoupled from AEM, use a general React skill — generic React/Preact app patterns are intentionally out of scope here.
+
 - `scss-domain-structure.md` — Domain-driven SCSS folder structure, global variables, barrel imports, Core Component overrides, responsive mixins, multi-tenant theming, Webpack integration
 - `tailwind-aem.md` — Tailwind CSS in AEM: PostCSS/Webpack setup, prefix strategy for BEM coexistence, HTL usage, Style System integration, `@tailwindcss/typography` for RTE, CSS custom properties bridge, production purging
 - `alpine-js-aem.md` — Alpine.js for AEM: installation via ClientLib, reactive HTL patterns (accordion, tabs, search, modal), Alpine.store for cross-component state, plugin ecosystem, author mode handling
 - `fe-aem-server.md` — `@kele23/fe-aem-server` local HTL dev server: setup, mock content JSON, Webpack/Vite integration, project structure mirroring AEM JCR, development workflow, limitations
 
-### Frontend — React (`rules/frontend/react/`)
-- `feature-driven-architecture.md` — Domain/feature folder structure, barrel exports, co-located tests/styles, lazy-loaded feature modules, shared vs feature-specific code separation
-- `context-state-management.md` — React Context for AEM page data, useReducer patterns, compound providers, persisted state, global vs local state boundaries, avoiding prop drilling
-- `custom-hooks-aem.md` — Reusable hooks for AEM: useContentFragment, useGraphQL, useAuthorMode, useBreakpoint, useIntersection, useAemPage, hook composition patterns
-- `storage-persistence.md` — localStorage/sessionStorage abstractions, IndexedDB for offline, cookie helpers, URL state sync, cross-tab communication, storage events, hydration-safe patterns
-- `data-fetching-graphql.md` — AEM Headless SDK with React, persisted queries, SWR/TanStack Query integration, prefetching, pagination, error boundaries, ISR with Next.js, multi-environment config
-- `performance-optimization.md` — React.memo, useMemo, useCallback, useTransition, useDeferredValue, code splitting with lazy/Suspense, virtualized lists, image optimization, bundle analysis, Core Web Vitals alignment
-- `testing-react-aem.md` — Testing Library patterns for AEM components, mocking ModelManager, testing editable components, hook testing, integration tests with MSW, Storybook for AEM
-
-### Frontend — Preact (`rules/frontend/preact/`)
-- `preact-aem-setup.md` — Preact in ui.frontend (Webpack aliases), compat layer, bundle size comparison, when to choose Preact over React, HTL integration, islands architecture
-- `signals-state.md` — Preact Signals for reactive state, computed values, effects, signal stores, Signals vs Context performance, shared state patterns, DevTools
-- `lightweight-components.md` — Small-footprint Preact components for AEM, progressive enhancement, islands architecture, partial hydration, Preact + HTL hybrid rendering
-
 ### Frontend — Vanilla JS (`rules/frontend/vanilla/`)
 - `web-components-aem.md` — Custom Elements for AEM, Shadow DOM with AEM styles, slots for HTL content projection, Coral UI interop, form-associated custom elements, AEM dialog integration
 - `module-architecture.md` — ES module organization, dynamic import for AEM ClientLibs, feature modules, pub/sub event bus, dependency injection lite, barrel exports for vanilla JS
-- `dom-patterns.md` — Efficient DOM manipulation, DocumentFragment batching, MutationObserver, template element cloning, event delegation, requestAnimationFrame scheduling, memory leak prevention
-- `storage-utilities.md` — Storage abstraction layer, typed wrappers, TTL cache, namespace isolation per AEM site, quota management, fallback chain (memory → session → local → IndexedDB)
 - `event-architecture.md` — Custom events with typed detail, event delegation patterns, AbortController cleanup, cross-component communication, integration with ACDL, decoupled pub/sub bus
+
+### Maintenance & Spec-Driven Workflow (`rules/maintenance/`)
+
+> For working on **existing** AEM repositories — auditing, extending, upgrading, and refactoring rather than greenfield. Start with `spec-driven-development.md`.
+
+- `spec-driven-development.md` — Entry-point workflow: AUDIT → SPEC → CONFIRM → IMPLEMENT → VERIFY → REVIEW; spec template, executable acceptance criteria, scope/non-goals, blast radius, smallest-change discipline
+- `codebase-audit-quality.md` — Module layout map, detecting AEMaaCS vs 6.5 target, learning repo conventions, quality baseline (aemanalyser / Cloud Manager gate / SonarQube), tech-debt map
+- `core-platform-maintenance.md` — AEM SDK / uber-jar bumps, Core Components version upgrades (proxy re-pointing), OSGi dependency hygiene, run-mode configs, broad verification
+- `frontend-maintenance.md` — ClientLib/bundle audit, stable BEM markup contracts, CSS debt removal, bundle hygiene, verifying against RUM field data
+- `backend-maintenance.md` — Refactoring behind stable Sling Model/JSON contracts, retiring deprecated APIs, resource/session hygiene, measured perf fixes, tests as acceptance criteria
+- `third-party-maintenance.md` — Dependency inventory (provided vs compile), CVE triage (npm audit / OWASP), upgrade discipline, external integration drift, verifying upgrades
 
 ## Key Principles
 
@@ -129,6 +127,7 @@ allowed-tools: Read Glob Grep Bash Edit Write
 8. **Push to ACDL from Sling Models** — implement ComponentData, use DataLayerBuilder
 9. **Persisted GraphQL queries** in production — POST bypasses CDN
 10. **Cookie consent via GTM** — load async, not in `<head>`
-11. **Feature-driven architecture** — group by domain feature, not by file type
-12. **Framework-appropriate patterns** — React for headless, Preact for islands, vanilla for traditional AEM
-13. **Performance is measurable** — use React DevTools Profiler, webpack-bundle-analyzer, and RUM data
+11. **HTL + progressive enhancement** — AEM frontend is server-rendered HTL; add behaviour with vanilla JS / Alpine, not a client-side SPA framework
+12. **Know your deployment target** — AEMaaCS by default; check the `### AEM 6.5 / Classic differences` section before applying Cloud-only patterns (RDE, Asset Microservices, auto-scaling CDN) on 6.5
+13. **Performance is measurable** — use webpack-bundle-analyzer, Dispatcher/CDN hit-ratio, and RUM field data
+14. **Spec before code on existing repos** — audit, write a testable spec with acceptance criteria, confirm scope, then make the smallest change (`maintenance/spec-driven-development.md`)

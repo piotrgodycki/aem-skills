@@ -13,9 +13,11 @@ EDS enforces quality through automated linting, PageSpeed Insights checks on eve
 
 ### 1. Testing Block `decorate()` Functions with JSDOM
 
+> **Use Vitest, not Jest.** Adobe standardises EDS unit testing on **Vitest + jsdom** (native ESM, no Babel/transform config, aligns with the boilerplate and Block Collection). The `describe`/`it`/`expect`/`vi` API is Jest-compatible, so the test bodies below are identical — only the config and runner differ. Install once: `npm i -D vitest @vitest/coverage-v8 jsdom`.
+
 Block JavaScript exports a single `decorate()` function that receives a DOM element. Test it by creating a DOM fixture matching the EDS block table structure, calling `decorate()`, and asserting the resulting DOM.
 
-**Correct -- unit testing a block with JSDOM (Jest):**
+**Correct -- unit testing a block with jsdom (Vitest):**
 
 ```javascript
 // test/blocks/cards/cards.test.js
@@ -83,21 +85,37 @@ describe('Cards Block', () => {
 });
 ```
 
-**Jest configuration for EDS projects (`jest.config.js`):**
+**Vitest configuration for EDS projects (`vitest.config.js`):**
 
 ```javascript
-export default {
-  testEnvironment: 'jsdom',
-  roots: ['<rootDir>/test'],
-  testMatch: ['**/*.test.js'],
-  transform: {},
-  // EDS uses native ES modules
-  extensionsToTreatAsEsm: [],
-  moduleNameMapper: {
-    // Mock aem.js utilities if needed
-    '^../../scripts/aem.js$': '<rootDir>/test/mocks/aem.js',
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  test: {
+    environment: 'jsdom',
+    globals: true,            // describe/it/expect without imports
+    include: ['test/**/*.test.js'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'html'],
+      exclude: ['node_modules/', 'test/', '**/*.config.js'],
+    },
   },
-};
+  // Map aem.js runtime utilities to a mock when a block imports them
+  resolve: { alias: { '/scripts/aem.js': '/test/mocks/aem.js' } },
+});
+```
+
+**package.json scripts:**
+
+```json
+{
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  }
+}
 ```
 
 **Mock for EDS runtime utilities (`test/mocks/aem.js`):**
@@ -426,68 +444,38 @@ npx psi https://main--mysite--myorg.aem.live/ --strategy=mobile
 
 ### 7. Visual Regression Testing for EDS Blocks
 
-Visual regression testing catches unintended style changes in blocks across breakpoints.
+Visual regression testing catches unintended style changes in blocks across breakpoints. **Use Playwright's built-in `toHaveScreenshot()`** — it reuses the Playwright setup from the E2E section (no extra service like BackstopJS or Percy, no separate account/token), snapshots are committed to the repo, and it handles EDS's async loading phases.
 
-**Correct -- BackstopJS configuration for EDS blocks:**
+**Correct -- Playwright visual regression for EDS blocks across breakpoints:**
 
-```json
-{
-  "id": "eds-visual-regression",
-  "viewports": [
-    { "label": "mobile", "width": 375, "height": 812 },
-    { "label": "tablet", "width": 768, "height": 1024 },
-    { "label": "desktop", "width": 1440, "height": 900 }
-  ],
-  "scenarios": [
-    {
-      "label": "Hero Block",
-      "url": "https://main--mysite--myorg.aem.page/drafts/visual-tests/hero",
-      "selectors": [".hero"],
-      "delay": 3000,
-      "misMatchThreshold": 0.1
-    },
-    {
-      "label": "Cards Block",
-      "url": "https://main--mysite--myorg.aem.page/drafts/visual-tests/cards",
-      "selectors": [".cards"],
-      "delay": 3000,
-      "misMatchThreshold": 0.1
-    },
-    {
-      "label": "Full Page - Home",
-      "url": "https://main--mysite--myorg.aem.page/",
-      "selectors": ["document"],
-      "delay": 5000,
-      "misMatchThreshold": 0.2
+```javascript
+// test/visual/blocks.visual.spec.js
+import { test, expect } from '@playwright/test';
+
+const VIEWPORTS = [
+  { name: 'mobile', width: 375, height: 812 },
+  { name: 'desktop', width: 1440, height: 900 },
+];
+const BLOCKS = ['hero', 'cards', 'columns', 'tabs'];
+
+for (const vp of VIEWPORTS) {
+  test.describe(`visual @ ${vp.name}`, () => {
+    test.use({ viewport: { width: vp.width, height: vp.height } });
+
+    for (const block of BLOCKS) {
+      test(`${block} block`, async ({ page }) => {
+        await page.goto(`/drafts/visual-tests/${block}`);
+        // wait for the block's lazy phase to settle before snapshotting
+        await page.locator(`.${block}[data-block-status="loaded"]`).waitFor();
+        await expect(page.locator(`.${block}`))
+          .toHaveScreenshot(`${block}-${vp.name}.png`, { maxDiffPixelRatio: 0.01 });
+      });
     }
-  ],
-  "paths": {
-    "bitmaps_reference": "test/visual/reference",
-    "bitmaps_test": "test/visual/results"
-  },
-  "engine": "playwright"
+  });
 }
 ```
 
-**Correct -- Percy integration with GitHub Actions for EDS:**
-
-```yaml
-name: Visual Regression
-on: [pull_request]
-
-jobs:
-  percy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Percy Snapshots
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-        run: |
-          npx @percy/cli snapshot \
-            --base-url "https://${{ github.head_ref }}--mysite--myorg.aem.page" \
-            percy-snapshots.yml
-```
+Run with `npx playwright test test/visual`; update baselines intentionally with `--update-snapshots`. In CI, snapshot diffs are uploaded as Playwright report artifacts on failure (reuse the Playwright GitHub Action from the E2E section).
 
 ---
 

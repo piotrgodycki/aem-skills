@@ -686,6 +686,27 @@ curl -I http://localhost:8080/content/mysite/en.html
 
 ---
 
+### AEM 6.5 / Classic differences
+
+The Dispatcher module, `statfileslevel`, filters, and the `/invalidate` handler behave identically. What changes is **how the cache is invalidated and what sits in front of it**.
+
+| Concern | AEMaaCS | AEM 6.5 on-prem / AMS |
+|---|---|---|
+| CDN in front | Adobe-managed Fastly (built-in) + optional BYOCDN | None by default — you add your own CDN (Akamai/CloudFront/Fastly/Cloudflare) |
+| Cache invalidation | Automatic on publish (Adobe flushes Dispatcher + CDN) | **Replication flush agents** on publish push `/dispatcher/invalidate.cache` to each Dispatcher |
+| Config format | `dispatcher.any` baked into the cloud image | `dispatcher.any` (classic) on your Apache; edit + `apachectl graceful` |
+| Publish topology | Adobe-managed, auto-scaled publish tier | Fixed set of publish instances; each needs its own flush agent entry |
+| Push invalidation | Yes (CDN purged on publish) | No — rely on flush agents + CDN TTLs you configure |
+
+**Correct — 6.5 flush agent (on author, replication agent of type `Dispatcher Flush`):**
+```
+# Transport URI points at each Dispatcher's invalidate handler
+http://dispatcher1.example.com/dispatcher/invalidate.cache
+# Trigger: "On Replication"; header CQ-Action-Scope: ResourceOnly for surgical flushes
+```
+
+**Incorrect — expecting Cloud auto-flush on 6.5:** on-prem nothing purges the Dispatcher unless a flush agent fires or TTL expires. Forgetting a flush agent on one publish → stale content on that node only.
+
 ### Pitfalls
 
 - Setting `statfileslevel` to 0 (invalidates entire cache on any publish)
