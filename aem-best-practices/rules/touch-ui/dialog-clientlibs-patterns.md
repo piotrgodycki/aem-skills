@@ -1,10 +1,3 @@
----
-title: Touch UI Dialog ClientLib Patterns
-impact: HIGH
-impactDescription: Dialog JavaScript controls field visibility, validation, and dynamic behavior — critical for author-friendly dialogs
-tags: dialog, clientlib, cq.authoring.dialog, showhide, validation, foundation-contentloaded, dialog-ready, coral-events
----
-
 ## Touch UI Dialog ClientLib Patterns
 
 Custom dialog behavior — field show/hide, validation, dynamic options — is implemented via client libraries with specific authoring categories.

@@ -1,10 +1,3 @@
----
-title: Style System Implementation
-impact: MEDIUM-HIGH
-impactDescription: Proper Style System usage enables reusable component variations without code duplication — incorrect patterns create QA nightmares and author confusion
-tags: style-system, css, scss, bem, policy, template, layout-styles, display-styles
----
-
 ## Style System Implementation
 
 The Style System allows authors to select visual variations for components. Selected styles inject CSS classes into the component's outer wrapper div, configured via content policies on editable templates.

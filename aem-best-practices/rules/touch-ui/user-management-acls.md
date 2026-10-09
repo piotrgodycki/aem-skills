@@ -1,10 +1,3 @@
----
-title: User Management, Permissions, and ACLs
-impact: HIGH
-impactDescription: Incorrect permission patterns cause security vulnerabilities, broken authoring workflows, and data exposure — IMS integration on Cloud Service changes everything from on-premise
-tags: permissions, acls, ims, admin-console, repo-init, service-users, cug, principal-access-control, product-profiles
----
-
 ## User Management, Permissions, and ACLs
 
 AEM as a Cloud Service uses Adobe IMS (Identity Management System) for authentication. Users are managed in Adobe Admin Console, not in AEM. Permissions are configured via Repo Init scripts, content policies, and product profiles.

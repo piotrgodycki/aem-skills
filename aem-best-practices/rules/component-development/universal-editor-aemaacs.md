@@ -1,10 +1,3 @@
----
-title: Universal Editor for AEMaaCS
-impact: HIGH
-impactDescription: Universal Editor is the strategic replacement for Page Editor and SPA Editor — incorrect instrumentation causes broken editing, missing fields, and container failures
-tags: universal-editor, data-aue, instrumentation, cors, containers, content-types, remote-spa, extension-points
----
-
 ## Universal Editor for AEMaaCS
 
 The Universal Editor (UE) is Adobe's next-generation visual editor that replaces both the Page Editor (for traditional AEM) and the SPA Editor (deprecated). It works with any frontend framework via CORS-based instrumentation using `data-aue-*` attributes.

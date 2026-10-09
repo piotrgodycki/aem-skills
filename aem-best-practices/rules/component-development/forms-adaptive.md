@@ -1,10 +1,3 @@
----
-title: AEM Forms - Adaptive Forms Frontend
-impact: HIGH
-impactDescription: Incorrect form implementation causes broken submissions, poor accessibility, and failed integrations
-tags: forms, adaptive-forms, core-components, form-theming, rule-editor, captcha, headless-forms, form-data-model, accessibility
----
-
 ## AEM Forms (Adaptive Forms) Frontend
 
 Adaptive Forms Core Components provide 30+ open-source, BEM-compliant form components built on AEM WCM Core Components. They support responsive rendering across devices, theming via SCSS, a visual rule editor for dynamic behavior, and multiple submission backends including REST, SharePoint, and OneDrive.

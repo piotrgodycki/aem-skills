@@ -1,10 +1,3 @@
----
-title: Advanced Dialog Field Patterns
-impact: HIGH
-impactDescription: Advanced field types enable rich authoring experiences for images, tags, fragments, colors, dates, and dynamic selections
-tags: dialog, pathfield, fileupload, tagfield, colorpicker, datepicker, multifield-composite, autocomplete, datasource, rendercondition, experience-fragment, content-fragment
----
-
 ## Advanced Dialog Field Patterns
 
 Beyond basic text, select, and checkbox fields, AEM provides specialized Granite UI components for complex authoring scenarios. This guide covers advanced field configurations for AEM Cloud Service.

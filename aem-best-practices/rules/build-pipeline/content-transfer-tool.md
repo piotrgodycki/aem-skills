@@ -1,10 +1,3 @@
----
-title: Content Transfer Tool (CTT) for AEM Migration
-impact: HIGH
-impactDescription: CTT is the only supported path for migrating content to AEM as a Cloud Service — incorrect usage causes data loss, failed migrations, and broken references
-tags: content-transfer-tool, migration, cloud-service, extraction, ingestion, cam, bpa, user-mapping
----
-
 ## Content Transfer Tool (CTT) for AEM Migration
 
 The Content Transfer Tool (CTT) extracts content from a source AEM instance (6.3+, 6.5) and ingests it into AEM as a Cloud Service. It handles JCR content, users/groups mapping, and large-scale data transfer via Azure Blob Storage.

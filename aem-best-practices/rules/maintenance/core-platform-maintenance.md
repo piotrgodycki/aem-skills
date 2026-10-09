@@ -1,10 +1,3 @@
----
-title: Core & Platform Maintenance (Versions, Core Components, OSGi)
-impact: HIGH
-impactDescription: Uncontrolled AEM SDK, Core Component, or OSGi dependency upgrades break builds, dialogs, and rendered pages across the whole site.
-tags: core-components, upgrade, aem-sdk, osgi, uber-jar, maintenance, versioning
----
-
 ## Core & Platform Maintenance
 
 "Core" maintenance is keeping the platform foundation current: the AEM SDK/API version, Core Components, archetype-level config, and the OSGi dependency graph. These changes have the widest blast radius in the repo, so they are always spec-driven (`spec-driven-development.md`).

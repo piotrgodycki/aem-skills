@@ -1,10 +1,3 @@
----
-title: Editable Templates, Page Properties & Component Policies
-impact: HIGH
-impactDescription: Templates and policies control what authors can do per page type — misconfiguration breaks page creation and component editing
-tags: templates, page-properties, policies, design-dialog, cq:design_dialog, template-editor, content-policies
----
-
 ## Editable Templates, Page Properties & Component Policies
 
 AEM Cloud Service uses editable templates with content policies to control page structure, allowed components, and component pre-configuration. This replaces the Classic UI design mode.

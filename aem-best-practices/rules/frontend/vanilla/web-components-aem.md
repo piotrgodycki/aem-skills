@@ -1,10 +1,3 @@
----
-title: Web Components for AEM
-impact: HIGH
-impactDescription: Custom Elements provide framework-free encapsulated components that integrate with AEM's HTL rendering and Coral UI authoring
-tags: web-components, custom-elements, shadow-dom, slots, coral-ui, aem, htm, dialog
----
-
 ## Web Components for AEM
 
 Web Components (Custom Elements + Shadow DOM) provide encapsulated, framework-free components that work with AEM's HTL server rendering, Coral UI authoring dialogs, and existing ClientLib pipeline.

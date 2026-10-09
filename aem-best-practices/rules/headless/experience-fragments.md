@@ -1,10 +1,3 @@
----
-title: Experience Fragments — Reusable Composed Experiences
-impact: HIGH
-impactDescription: Experience Fragments enable reusable, layout-complete content sections across pages and channels; incorrect use leads to performance degradation and editorial complexity
-tags: experience-fragments, xf, personalization, target, live-copy, core-components, caching, sdi, reuse
----
-
 ## Experience Fragments — Reusable Composed Experiences
 
 Experience Fragments (XF) are groups of one or more AEM components — **including layout** — that form a self-contained, reusable experience. Unlike Content Fragments (structured data, no presentation), XFs carry both content and visual design and are rendered server-side.

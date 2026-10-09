@@ -1,10 +1,3 @@
----
-title: Frontend Developer Workflow & Tooling for AEM Cloud Service
-impact: HIGH
-impactDescription: Inefficient frontend workflows slow development velocity and introduce deployment errors that are costly to fix in Cloud Manager pipelines
-tags: frontend, workflow, sdk, proxy, webpack, debugging, clientlibs, cloud-manager, testing, git, aio-cli, feature-flags
----
-
 ## Frontend Developer Workflow & Tooling
 
 Practical tips, tricks, and patterns for frontend development on AEM as a Cloud Service. These are the things experienced AEM developers know that save hours of debugging and rework.

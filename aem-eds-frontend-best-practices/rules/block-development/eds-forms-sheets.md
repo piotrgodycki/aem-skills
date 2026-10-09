@@ -1,10 +1,3 @@
----
-title: Edge Delivery Services Forms and Spreadsheet Data
-impact: HIGH
-impactDescription: Forms and spreadsheet-driven content are core EDS patterns — correct implementation ensures data integrity, performance, and usability
-tags: edge-delivery, eds, forms, spreadsheets, json, adaptive-forms, data-sources, google-sheets, excel
----
-
 ## EDS Forms and Spreadsheet Data
 
 Edge Delivery Services provides two primary data patterns: the Adaptive Forms Block for capturing user input, and spreadsheet-to-JSON feeds for powering dynamic block content. Both patterns use Google Sheets or Microsoft Excel/SharePoint as the underlying data store.

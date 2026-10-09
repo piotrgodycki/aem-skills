@@ -1,10 +1,3 @@
----
-title: Custom Dialog Widget and Field Development
-impact: HIGH
-impactDescription: Custom widgets extend authoring capabilities beyond out-of-the-box Granite UI fields — must be built correctly for stability and maintainability
-tags: dialog, custom-widget, granite-ui, coral-ui, clientlib, validation, dialog-events, content-transformer, content-policy, sling-resourceSuperType
----
-
 ## Custom Dialog Widget and Field Development
 
 When standard Granite UI fields are insufficient, you can create custom field components, extend existing ones, hook into dialog lifecycle events, and implement custom validation and save logic.

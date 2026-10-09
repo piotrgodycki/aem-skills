@@ -1,10 +1,3 @@
----
-title: Rapid Development Environments (RDE)
-impact: MEDIUM
-impactDescription: RDE enables rapid iteration without full pipeline deployments — misuse leads to untested code in production and reliance on non-persistent environments
-tags: rde, rapid-development, aio-cli, local-development, iteration, cloud-service
----
-
 ## Rapid Development Environments (RDE)
 
 Rapid Development Environments (RDE) allow developers to deploy and test changes on a real Cloud Service environment in seconds, without running a full Cloud Manager pipeline. They bridge the gap between the local SDK and Cloud Manager pipelines.

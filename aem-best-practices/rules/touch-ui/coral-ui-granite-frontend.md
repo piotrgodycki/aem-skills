@@ -1,10 +1,3 @@
----
-title: Coral UI 3 & Granite UI Frontend Framework
-impact: HIGH
-impactDescription: Touch UI authoring relies entirely on Coral UI 3 and Granite UI — incorrect usage breaks dialogs, editor extensions, and author experience
-tags: coral-ui, granite-ui, javascript, frontend, web-components, clientlib, foundation
----
-
 ## Coral UI 3 & Granite UI Frontend Framework
 
 AEM Cloud Service Touch UI is built on two frontend layers: **Coral UI 3** (Adobe's Web Components library) and **Granite UI** (server-side Sling components that render Coral markup). All authoring interfaces — dialogs, consoles, page editor — use these frameworks.

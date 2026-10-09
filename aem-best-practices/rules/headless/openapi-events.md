@@ -1,10 +1,3 @@
----
-title: Content Fragment OpenAPI & AEM Eventing
-impact: HIGH
-impactDescription: OpenAPI and eventing patterns determine API reliability, security, and real-time integration capabilities for headless architectures
-tags: openapi, content-fragments, api, events, webhooks, adobe-io, app-builder, rest, crud
----
-
 ## Content Fragment OpenAPI & AEM Eventing
 
 AEM as a Cloud Service provides OpenAPI-based REST APIs for Content Fragment management and delivery, plus a cloud-native eventing system (Adobe I/O Events) for real-time integrations. The legacy Assets HTTP API for Content Fragments is deprecated in favor of these OpenAPIs.

@@ -1,10 +1,3 @@
----
-title: fe-aem-server — Local HTL Development Server
-impact: HIGH
-impactDescription: fe-aem-server eliminates the HTL conversion step — frontend developers write production-ready HTL locally without a running AEM instance
-tags: fe-aem-server, htl, local-dev, webpack, vite, sightly, aem, node, development-workflow
----
-
 ## fe-aem-server — Local HTL Development Server
 
 `@kele23/fe-aem-server` is a Node.js Express server that renders HTL (Sightly) templates locally using `@adobe/htlengine`. Frontend developers write HTL directly — structured exactly as AEM JCR expects — and preview in the browser without a running AEM SDK.

@@ -1,10 +1,3 @@
----
-title: Service Workers for EDS
-impact: MEDIUM
-impactDescription: Service workers enable offline support and advanced caching — but incorrect patterns break EDS push invalidation and degrade rather than improve performance
-tags: eds, service-worker, offline, caching, workbox, precache, background-sync, push-notifications
----
-
 ## Service Workers for EDS
 
 Service workers intercept network requests, enabling offline support, advanced caching, and background sync. In EDS, the CDN already provides excellent caching with push invalidation — service workers add value for offline-first experiences and advanced use cases, but must not conflict with EDS's caching model.

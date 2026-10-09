@@ -1,10 +1,3 @@
----
-title: Third-Party Backend Integrations in AEM
-impact: CRITICAL
-impactDescription: Poorly integrated external APIs cause cascading failures, slow page rendering, security vulnerabilities, and author frustration
-tags: integration, rest-api, http-client, circuit-breaker, caching, osgi, service-user, retry, timeout, error-handling
----
-
 ## Third-Party Backend Integrations in AEM
 
 Production patterns for integrating AEM with external REST APIs, SOAP services, and backend systems — proper HTTP clients, timeouts, circuit breakers, caching, error handling, and OSGi configuration.

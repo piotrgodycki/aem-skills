@@ -1,10 +1,3 @@
----
-title: Backend Maintenance (Sling Models, Servlets, Deprecations, Perf)
-impact: HIGH
-impactDescription: Refactoring Sling Models, servlets, and services in a live AEM repo without regression coverage breaks rendering and leaks resources.
-tags: sling-models, servlets, osgi, deprecations, performance, refactor, maintenance
----
-
 ## Backend Maintenance
 
 Maintaining the `core` Java layer of an existing AEM project: refactoring Sling Models and services, retiring deprecated APIs, and fixing performance regressions — without changing behaviour the author/front-end relies on. Always spec-driven (`spec-driven-development.md`) with unit tests as acceptance criteria.

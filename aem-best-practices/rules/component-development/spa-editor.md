@@ -1,9 +1,3 @@
----
-title: "AEM SPA Editor Development Patterns"
-impact: "High — affects architecture, authoring experience, and long-term maintainability of SPA-based AEM projects"
-tags: [spa, react, angular, spa-editor, universal-editor, headless, content-fragments, deprecated, migration]
----
-
 # AEM SPA Editor Development Patterns
 
 > **Deprecation Notice**: Adobe deprecated the SPA Editor with AEM as a Cloud Service release 2025.01. No further enhancements or SDK updates will be made. Existing implementations remain supported (P1/P2 issues and security fixes only). All new projects must use the **Universal Editor** or **Content Fragment Editor**. There is no direct migration path from SPA Editor to Universal Editor due to fundamental architectural differences.

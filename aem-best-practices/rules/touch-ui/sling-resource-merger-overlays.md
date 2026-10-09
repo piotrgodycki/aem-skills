@@ -1,10 +1,3 @@
----
-title: Content Overlays & Sling Resource Merger
-impact: HIGH
-impactDescription: Overlays are the only supported way to customize Touch UI consoles, dialogs, and the page editor in Cloud Service
-tags: overlays, sling-resource-merger, sling:hideResource, sling:orderBefore, apps, libs, customization
----
-
 ## Content Overlays & Sling Resource Merger
 
 AEM Cloud Service uses overlays as the primary mechanism to customize built-in UI — consoles, dialogs, page editor, and admin interfaces. The Sling Resource Merger enables minimal diffs rather than full copies of `/libs` structures.

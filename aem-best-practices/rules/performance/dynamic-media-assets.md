@@ -1,10 +1,3 @@
----
-title: Dynamic Media and Asset Delivery for AEM Cloud Service
-impact: CRITICAL
-impactDescription: Unoptimized image and media delivery is the single largest contributor to poor Core Web Vitals (LCP, CLS), excessive bandwidth consumption, and degraded user experience on AEM sites
-tags: dynamic-media, scene7, smart-imaging, image-presets, responsive-images, webp, avif, video-streaming, image-optimization, web-optimized-image-delivery, core-image-component, srcset, lazy-loading, fetchpriority, cdn, dam, 3d-assets, viewer-presets, adaptive-image-servlet, performance, core-web-vitals
----
-
 ## Dynamic Media and Asset Delivery
 
 Comprehensive guide to delivering optimized images, video, and rich media from AEM Cloud Service. Covers both Dynamic Media (Scene7) and the newer Web-Optimized Image Delivery (WOID) approach, with practical patterns for responsive images, CDN caching, and performance tuning.

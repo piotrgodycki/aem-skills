@@ -1,10 +1,3 @@
----
-title: OSGi Services, Schedulers, and Event Handlers
-impact: HIGH
-impactDescription: OSGi services form the backbone of AEM backend logic — incorrect patterns cause memory leaks, clustered job failures, and resource resolver leaks that crash instances
-tags: osgi, services, schedulers, sling-jobs, event-handlers, resource-change-listener, service-user, health-checks, configuration
----
-
 ## OSGi Services, Schedulers, and Event Handlers
 
 OSGi Declarative Services (DS) annotations are the standard for AEM backend development. They manage service lifecycle, dependency injection, configuration, and scheduling. AEM as a Cloud Service requires DS annotations (R7+), not legacy Felix SCR annotations.

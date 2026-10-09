@@ -1,10 +1,3 @@
----
-title: AEM Component Architecture Patterns & Best Practices
-impact: HIGH
-impactDescription: Poor component architecture leads to content migration nightmares, broken upgrades, and unmaintainable codebases
-tags: components, core-components, proxy, hierarchy, versioning, experience-fragments, content-fragments, container, decoration-tag, wcm-mode, page-component
----
-
 ## AEM Component Architecture Patterns
 
 Practical patterns and anti-patterns for component development on AEM as a Cloud Service. Understanding the component hierarchy and following the proxy pattern prevents costly content migrations and ensures smooth Core Components upgrades.

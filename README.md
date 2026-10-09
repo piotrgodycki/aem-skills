@@ -23,7 +23,9 @@
 ![skills.sh](https://img.shields.io/badge/skills.sh-Compatible-000000?style=for-the-badge&logo=vercel&logoColor=white)
 ![Claude Code](https://img.shields.io/badge/Claude_Code-Compatible-D97757?style=for-the-badge&logo=anthropic&logoColor=white)
 
-> Written from a **senior expert full-stack AEM developer** perspective with deep knowledge of Sling, OSGi, JCR, and the Adobe ecosystem. Every rule delivers production-grade, enterprise-ready patterns — not beginner tutorials. Each file includes correct and incorrect code examples side by side, an anti-patterns section, and impact ratings (Critical / High / Medium).
+> Written from a **senior expert full-stack AEM developer** perspective with deep knowledge of Sling, OSGi, JCR, and the Adobe ecosystem. Every rule delivers production-grade, enterprise-ready patterns — not beginner tutorials. Each file includes correct and incorrect code examples side by side and an anti-patterns section.
+>
+> **Structure**: each `SKILL.md` is a lean router with a sharp description and a reference map. The rule files are disclosed reference — the agent opens only the one or two that bear on the task, instead of loading all 84 every turn (progressive disclosure).
 
 Claude Code skills with **84 rule files** — battle-tested solutions from large-scale AEM implementations covering backend (Sling Models, servlets, OSGi, workflows), frontend (Webpack, ClientLibs, Core Components, Style System, Vanilla JS / Alpine / Tailwind), authoring (Touch UI, Universal Editor, dialogs, policies), headless (GraphQL, Content Fragments, SPA/headless SDKs), infrastructure (Cloud Manager, Dispatcher, CDN, Dynamic Media, performance optimization), a maintenance workflow for existing repos (spec-driven development, audit/quality, core/fe/backend/third-party), and AEM Edge Delivery Services. AEMaaCS-first, with **AEM 6.5 / Classic** differences annotated throughout.
 

@@ -1,10 +1,3 @@
----
-title: Edge Delivery Services Block Development
-impact: CRITICAL
-impactDescription: EDS is Adobe's recommended approach for new high-performance sites — correct patterns are essential
-tags: edge-delivery, eds, franklin, helix, blocks, vanilla-js, universal-editor
----
-
 ## Edge Delivery Services Block Development
 
 Edge Delivery Services (EDS) delivers high-performance sites using plain HTML, CSS, and vanilla JavaScript. Content is authored via Universal Editor or Google Docs and delivered through a global CDN. No frameworks allowed.

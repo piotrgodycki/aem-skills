@@ -1,21 +1,3 @@
----
-title: AEM Edge Delivery Services Standard Blocks & Components Reference
-impact: HIGH
-impactDescription: >
-  Comprehensive reference for all standard EDS blocks, their HTML structure, JavaScript decorate
-  patterns, CSS classes, Universal Editor component models, and block collection blocks. Essential
-  for any developer building or customizing AEM EDS sites with the XWalk boilerplate.
-tags:
-  - eds
-  - blocks
-  - components
-  - universal-editor
-  - xwalk
-  - boilerplate
-  - block-collection
-  - content-modeling
----
-
 # AEM Edge Delivery Services — Standard Blocks & Components
 
 This document covers every standard block and component available in the AEM EDS XWalk boilerplate

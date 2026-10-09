@@ -1,10 +1,3 @@
----
-title: Edge Delivery Services Experimentation & Personalization
-impact: HIGH
-impactDescription: Experimentation drives conversion optimization — correct implementation ensures valid results without performance degradation
-tags: edge-delivery, eds, experimentation, a-b-testing, personalization, audiences, rum, analytics
----
-
 ## EDS Experimentation & Personalization
 
 Edge Delivery Services includes a lightweight, privacy-first experimentation framework that enables A/B testing, audience targeting, and campaign personalization without slowing down your site. The framework is deeply integrated into the AEM delivery system and uses Real User Monitoring (RUM) for data collection.

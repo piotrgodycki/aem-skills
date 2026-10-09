@@ -1,10 +1,3 @@
----
-title: AEM Accessibility (WCAG 2.1 AA) and SEO Patterns
-impact: HIGH
-impactDescription: Accessibility failures expose legal risk and exclude users — SEO misconfigurations reduce organic traffic and search visibility
-tags: accessibility, wcag, aria, a11y, seo, structured-data, json-ld, sitemap, meta-tags, core-web-vitals, hreflang, canonical
----
-
 ## AEM Accessibility and SEO Patterns
 
 AEM Core Components are built with WCAG 2.1 AA compliance in mind, but correct usage and custom component development require deliberate accessibility and SEO practices.

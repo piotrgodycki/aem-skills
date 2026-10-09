@@ -1,10 +1,3 @@
----
-title: CSS Best Practices for AEM Edge Delivery Services
-impact: HIGH
-impactDescription: EDS uses plain vanilla CSS with no build step — applying modern CSS patterns correctly is critical for performance, maintainability, and Lighthouse scores
-tags: eds, css, custom-properties, nesting, grid, flexbox, container-queries, performance, scoping, design-tokens
----
-
 ## CSS Best Practices for AEM Edge Delivery Services
 
 EDS serves CSS files as-is with zero build step. No SCSS, Less, PostCSS, Tailwind, or any preprocessor is supported. Modern CSS has evolved to cover the vast majority of features that once required preprocessors — custom properties, nesting, container queries, `:has()`, `color-mix()`, `@layer`, and more — all natively in the browser.

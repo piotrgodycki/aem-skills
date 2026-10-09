@@ -1,10 +1,3 @@
----
-title: ClientLibs Configuration & Best Practices
-impact: HIGH
-impactDescription: Incorrect ClientLib setup causes missing styles/scripts on publish and caching failures
-tags: clientlibs, css, js, proxy, caching, htl, sightly
----
-
 ## ClientLibs Configuration & Best Practices
 
 Client-Side Libraries (ClientLibs) are AEM's mechanism for organizing and delivering CSS and JavaScript. On AEM Cloud Service, proper configuration is critical for publish access and CDN caching.

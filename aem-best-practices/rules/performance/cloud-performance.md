@@ -1,10 +1,3 @@
----
-title: AEM Cloud Performance & Caching
-impact: CRITICAL
-impactDescription: Correct caching configuration can improve page load times by 10x+ and reduce origin load — misconfiguration causes CDN cache misses, stale content, and origin overload
-tags: cdn, caching, fastly, cache-control, dispatcher, performance, images, surrogate-control, stale-while-revalidate, auto-scaling
----
-
 ## AEM Cloud Performance & Caching
 
 AEM Cloud Service uses Adobe's managed CDN (Fastly). Understanding the multi-tier caching architecture is essential for achieving target TTFB < 200ms and maintaining cache hit ratios above 90%.

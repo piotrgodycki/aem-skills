@@ -1,10 +1,3 @@
----
-title: Web Components in EDS
-impact: MEDIUM
-impactDescription: Web Components provide encapsulation for reusable widgets — but overuse adds complexity and breaks the simplicity that makes EDS fast
-tags: eds, web-components, custom-elements, shadow-dom, slots, templates, encapsulation, vanilla-js
----
-
 ## Web Components in EDS
 
 Web Components (Custom Elements + Shadow DOM) provide true encapsulation for reusable UI widgets in EDS. Use them when you need style isolation or cross-site portability — but prefer plain vanilla JS blocks for most EDS development.

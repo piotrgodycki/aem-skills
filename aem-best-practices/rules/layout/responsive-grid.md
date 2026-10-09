@@ -1,10 +1,3 @@
----
-title: Responsive Grid & Layout
-impact: MEDIUM
-impactDescription: Correct grid and breakpoint configuration ensures consistent responsive behavior across devices
-tags: responsive, grid, breakpoints, layout-container, template, mobile, columns, nesting
----
-
 ## Responsive Grid & Layout
 
 AEM's responsive grid is a 12-column CSS grid system with configurable breakpoints. Layout is controlled via editable templates, Layout Containers, and content policies.

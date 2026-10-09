@@ -1,10 +1,3 @@
----
-title: EDS Performance Optimization
-impact: CRITICAL
-impactDescription: EDS targets 100 Lighthouse score — performance mistakes directly degrade Core Web Vitals and user experience
-tags: eds, performance, lighthouse, lcp, cls, fid, lazy-loading, fonts, images
----
-
 ## EDS Performance Optimization
 
 Edge Delivery Services is engineered for perfect Lighthouse scores. The architecture automatically handles many performance optimizations, but block developers must follow specific patterns to maintain this performance.

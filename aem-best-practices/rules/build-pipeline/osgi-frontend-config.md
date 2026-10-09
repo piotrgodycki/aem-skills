@@ -1,10 +1,3 @@
----
-title: OSGi & Configuration Affecting Frontend
-impact: HIGH
-impactDescription: Misconfigured OSGi services break external links, CORS, authentication, and environment-specific rendering on publish
-tags: osgi, cors, externalizer, referrer-filter, sling-mapping, clientlibs, html-library-manager, cloud-manager, environment-variables, repo-init
----
-
 ## OSGi & Configuration Affecting Frontend
 
 AEM Cloud Service uses `.cfg.json` OSGi configuration files deployed through Cloud Manager. Many OSGi services directly affect frontend behavior: link generation, cross-origin requests, authentication, asset processing, and HTML delivery. All configurations live under `/apps/<project>/osgiconfig/` with run-mode folder targeting.

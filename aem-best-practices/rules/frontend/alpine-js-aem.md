@@ -1,10 +1,3 @@
----
-title: Alpine.js for AEM Components
-impact: HIGH
-impactDescription: Alpine.js adds reactive interactivity directly in HTL markup with zero build step — ideal for traditional AEM where full React/Preact is overkill
-tags: alpine, alpinejs, htl, aem, reactive, progressive-enhancement, lightweight, x-data, x-bind
----
-
 ## Alpine.js for AEM Components
 
 Alpine.js (~17KB) brings reactive behavior directly into HTML attributes — no build step, no virtual DOM, no component compilation. It works naturally with AEM's server-rendered HTL because you add behavior to existing markup instead of replacing it.

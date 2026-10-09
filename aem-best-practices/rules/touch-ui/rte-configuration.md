@@ -1,10 +1,3 @@
----
-title: Rich Text Editor (RTE) Configuration
-impact: HIGH
-impactDescription: RTE configuration controls what formatting options authors have — misconfiguration causes broken content, XSS risks, or missing editing features
-tags: rte, richtext, plugins, toolbar, paraformat, styles, paste-rules, htmlRules, inplace-editing, dialog
----
-
 ## Rich Text Editor (RTE) Configuration
 
 The AEM Rich Text Editor (RTE) is configured through plugins and UI settings. Each plugin controls a feature set, and the toolbar configuration determines which buttons appear in different editing modes.

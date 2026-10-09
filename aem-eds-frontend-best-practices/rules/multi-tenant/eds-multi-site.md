@@ -1,10 +1,3 @@
----
-title: Edge Delivery Services Multi-Site Architecture
-impact: HIGH
-impactDescription: Multi-site patterns define code reuse, theming, and content organization across brands/regions in AEM Edge Delivery Services
-tags: edge-delivery, eds, multi-site, repoless, helix-5, theming, blocks, fstab, paths-json
----
-
 ## Edge Delivery Services Multi-Site Architecture
 
 Edge Delivery Services supports multi-site deployments through the repoless architecture (Helix 5), enabling multiple sites to share a single codebase while maintaining independent content sources, configurations, and branding.

@@ -1,10 +1,3 @@
----
-title: Testing & Quality Assurance for AEM Cloud Service
-impact: CRITICAL
-impactDescription: Untested AEM code causes production failures, blocks Cloud Manager pipelines, and results in costly rollbacks across environments
-tags: testing, quality, unit-tests, integration-tests, e2e, cypress, playwright, aem-mocks, cloud-manager, quality-gates, sonarqube, accessibility, visual-regression, ci-cd
----
-
 ## Testing & Quality Assurance for AEM Cloud Service
 
 A comprehensive testing strategy for AEM as a Cloud Service follows the test pyramid: many fast unit tests, fewer integration tests, and targeted end-to-end tests. Cloud Manager enforces quality gates at every stage of the pipeline.

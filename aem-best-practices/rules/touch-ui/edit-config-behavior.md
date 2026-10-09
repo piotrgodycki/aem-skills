@@ -1,10 +1,3 @@
----
-title: cq:editConfig and Edit Behavior Configuration
-impact: HIGH
-impactDescription: Edit behavior controls component authoring interactions — drop targets, inline editing, toolbar actions, and event listeners
-tags: editConfig, cq:listeners, cq:dropTargets, cq:inplaceEditing, cq:actionConfigs, cq:htmlTag, toolbar, drag-drop
----
-
 ## cq:editConfig and Edit Behavior Configuration
 
 The `cq:editConfig` node (type `cq:EditConfig`) controls how a component behaves in the page editor — what toolbar actions appear, how drag-and-drop works, what happens after editing, and whether inline editing is available.

@@ -1,10 +1,3 @@
----
-title: Content Fragments — Models, Authoring & Delivery
-impact: HIGH
-impactDescription: Content Fragments are the foundation of AEM headless and structured content; correct model design and delivery patterns directly impact scalability, performance, and editorial efficiency
-tags: content-fragments, headless, models, graphql, openapi, variations, sling-models, htl, webhooks, core-components
----
-
 ## Content Fragments — Models, Authoring & Delivery
 
 Content Fragments are structured, channel-agnostic content managed as AEM Assets. They are authored against Content Fragment Models and delivered via GraphQL, OpenAPI REST, or rendered on pages through Sling Models and HTL.

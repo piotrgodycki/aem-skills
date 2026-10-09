@@ -1,10 +1,3 @@
----
-title: Edge Delivery Services Sidekick, Admin & SEO
-impact: HIGH
-impactDescription: Sidekick configuration and SEO best practices directly affect author productivity and search visibility
-tags: edge-delivery, eds, sidekick, seo, metadata, sitemap, redirects, open-graph, structured-data, admin-api
----
-
 ## EDS Sidekick, Admin & SEO
 
 The AEM Sidekick is the primary authoring toolbar for Edge Delivery Services, providing preview, publish, and content management capabilities. SEO in EDS is managed through metadata blocks, bulk metadata spreadsheets, sitemaps, redirects, and structured data.

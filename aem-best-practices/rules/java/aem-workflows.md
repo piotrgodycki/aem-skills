@@ -1,10 +1,3 @@
----
-title: AEM Workflow Development Patterns
-impact: HIGH
-impactDescription: Workflows orchestrate content approval, asset processing, and publishing — incorrect patterns cause hung workflows, performance degradation, and unreliable content operations
-tags: workflows, process-steps, launchers, transient, payload, granite-workflow, cloud-service
----
-
 ## AEM Workflow Development Patterns
 
 Workflows in AEM orchestrate multi-step processes: content approval, asset processing, translation, and publishing. AEM as a Cloud Service uses the Granite Workflow engine with significant differences from on-premise (no ECMA scripts, microservice-based asset processing).

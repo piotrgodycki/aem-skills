@@ -1,10 +1,3 @@
----
-title: Codebase Audit & Quality Baseline
-impact: HIGH
-impactDescription: Changing an unfamiliar AEM repo without first mapping its conventions and quality baseline guarantees inconsistent code and silent regressions.
-tags: audit, quality, onboarding, tech-debt, sonarqube, conventions, maintenance
----
-
 ## Codebase Audit & Quality Baseline
 
 The first phase of every maintenance task (`spec-driven-development.md`) is understanding the repo you are about to change. This file is the checklist for mapping an existing AEM project and establishing a quality baseline before and after a change.

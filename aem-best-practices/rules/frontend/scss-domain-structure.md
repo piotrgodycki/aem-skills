@@ -1,10 +1,3 @@
----
-title: SCSS Domain-Driven Structure for AEM
-impact: HIGH
-impactDescription: Flat SCSS folders become unmaintainable at scale — domain-driven organization aligns styles with component ownership and enables selective compilation
-tags: scss, css, architecture, domain-driven, structure, aem, ui-frontend, clientlibs
----
-
 ## SCSS Domain-Driven Structure for AEM
 
 Organize SCSS in AEM's `ui.frontend` by domain/feature instead of file type. Each domain owns its components, variables, mixins, and overrides — matching the component-driven nature of AEM development.

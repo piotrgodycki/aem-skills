@@ -1,10 +1,3 @@
----
-title: Sling Models for Frontend Developers
-impact: HIGH
-impactDescription: Sling Models bridge backend data to HTL templates — incorrect annotations or patterns cause silent null values, broken components, and JSON export failures
-tags: sling-models, htl, annotations, json-exporter, core-components, delegation, testing, valueMapValue
----
-
 ## Sling Models for Frontend Developers
 
 Sling Models are annotation-driven Java POJOs that map AEM resource data (JCR properties) to Java objects. They are the recommended Use-API for backing HTL components, replacing the legacy WCMUsePojo approach.

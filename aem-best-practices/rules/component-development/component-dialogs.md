@@ -1,10 +1,3 @@
----
-title: Component Dialog Development
-impact: HIGH
-impactDescription: Dialog quality directly affects author experience and content accuracy — incorrect patterns cause broken fields, confusing UX, and content entry errors
-tags: dialog, granite-ui, coral, xml, multifield, authoring, validation, tabs, fields, design-dialog
----
-
 ## Component Dialog Development
 
 AEM component dialogs use Granite UI (Coral 3) resource types. Dialogs are defined as XML in `_cq_dialog/.content.xml` and provide the author editing experience for components.

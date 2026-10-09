@@ -1,10 +1,3 @@
----
-title: Event Architecture for Vanilla JS AEM
-impact: HIGH
-impactDescription: Proper event patterns enable decoupled component communication, clean ACDL integration, and memory-safe AEM author mode handling
-tags: vanilla-js, events, custom-events, event-delegation, abort-controller, pub-sub, acdl
----
-
 ## Event Architecture for Vanilla JS AEM
 
 Event patterns for AEM vanilla JS components — typed custom events, event delegation, AbortController lifecycle, cross-component pub/sub, and Adobe Client Data Layer integration.

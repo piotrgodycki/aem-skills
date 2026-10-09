@@ -1,10 +1,3 @@
----
-title: Edge Compute and Edge Workers for EDS
-impact: HIGH
-impactDescription: Edge compute enables server-side logic at CDN edge — incorrect patterns bypass EDS caching, add latency, and create debugging nightmares
-tags: eds, edge-compute, edge-workers, cloudflare-workers, cdn, byocdn, personalization, geolocation, authentication, a-b-testing
----
-
 ## Edge Compute and Edge Workers for EDS
 
 Edge compute runs server-side logic at CDN points of presence, close to users. With EDS's BYOCDN capability, you can use Cloudflare Workers, Akamai EdgeWorkers, or AWS CloudFront Functions to add authentication, personalization, and API proxying without client-side JavaScript.

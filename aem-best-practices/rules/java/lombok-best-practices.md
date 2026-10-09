@@ -1,10 +1,3 @@
----
-title: Project Lombok Best Practices in AEM Cloud Service
-impact: MEDIUM-HIGH
-impactDescription: Lombok reduces Java boilerplate in Sling Models, OSGi services, and servlets — but incorrect annotation usage causes injection failures, broken HTL bindings, and subtle runtime bugs in AEM
-tags: lombok, java, sling-models, osgi, servlets, boilerplate, annotations, builder, logging, jackson, aem-mocks, dto, value-objects
----
-
 ## Project Lombok Best Practices in AEM Cloud Service
 
 Project Lombok eliminates repetitive Java boilerplate (getters, setters, constructors, logging, toString) through compile-time annotation processing. In AEM projects it is especially valuable for Sling Models (dozens of getter methods for HTL), OSGi services (logging), and JSON DTOs (Sling Model Exporters). However, several Lombok annotations conflict with AEM's injection framework and must be used carefully.

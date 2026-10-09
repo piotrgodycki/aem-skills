@@ -1,10 +1,3 @@
----
-title: JCR/Oak Query Optimization for AEM Cloud Service
-impact: HIGH
-impactDescription: Unoptimized queries cause traversal warnings, slow page rendering, and can trigger Oak query limits that break content lists entirely
-tags: querybuilder, jcr-sql2, xpath, oak-index, lucene, traversal, pagination, content-fragments, dam, sling-models, performance
----
-
 ## JCR/Oak Query Optimization
 
 Efficient repository queries are critical for frontend-visible performance. Slow queries directly impact page load times for content lists, tag-based navigation, search results, and related content components.

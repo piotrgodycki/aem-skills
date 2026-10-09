@@ -1,10 +1,3 @@
----
-title: Content-Driven Development & Reuse-First Workflow
-impact: HIGH
-impactDescription: Code-first EDS development builds against imagined requirements, produces author-hostile blocks, and duplicates blocks that already exist in the Block Collection.
-tags: eds, cdd, content-first, block-collection, block-party, workflow, authoring, reuse
----
-
 ## Content-Driven Development & Reuse-First Workflow
 
 Adobe's official EDS guidance is **Content-Driven Development (CDD)**: content reality drives code, not the reverse. This rule captures the philosophy and the reuse-first loop that should precede writing any block.

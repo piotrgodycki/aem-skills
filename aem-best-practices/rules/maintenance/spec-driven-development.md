@@ -1,10 +1,3 @@
----
-title: Spec-Driven Development for Existing AEM Repositories
-impact: HIGH
-impactDescription: Changes to a mature AEM codebase that skip a written spec cause regressions, scope creep, and broken author experiences across environments.
-tags: spec, workflow, maintenance, acceptance-criteria, process, brownfield
----
-
 ## Spec-Driven Development for Existing AEM Repositories
 
 Greenfield skills assume you are building. In practice most AEM work is **maintenance of an existing repo** — fixing a component, upgrading a dependency, extending a dialog. Spec-Driven Development (SDD) front-loads a short, verifiable specification before touching code, so the change is scoped, reviewable, and testable against explicit acceptance criteria.

@@ -1,10 +1,3 @@
----
-title: Frontend Maintenance (ClientLibs, Bundles, CSS Debt)
-impact: MEDIUM
-impactDescription: Unmanaged ClientLib and bundle growth degrades Core Web Vitals and makes CSS changes unpredictable in a mature AEM front-end.
-tags: clientlibs, ui-frontend, webpack, css-debt, bundle, performance, maintenance
----
-
 ## Frontend Maintenance
 
 Maintaining the `ui.frontend` + ClientLibs layer of an existing AEM project: keeping bundles lean, CSS predictable, and the Core Component markup contract intact. Scope every change via `spec-driven-development.md`; verify against RUM/CWV, not vibes.

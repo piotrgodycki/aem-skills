@@ -1,10 +1,3 @@
----
-title: Frontend Performance Optimization for AEM Cloud Service
-impact: HIGH
-impactDescription: Poor frontend performance directly impacts SEO rankings, Core Web Vitals scores, and user engagement metrics
-tags: performance, critical-css, lazy-loading, webp, dynamic-media, fonts, service-worker, preconnect, prefetch, bundle-analysis, tree-shaking, core-web-vitals, lighthouse, gtm, http2
----
-
 ## Frontend Performance Optimization
 
 Practical, AEM-specific techniques for optimizing frontend performance. These patterns address the unique challenges of AEM's ClientLib system, Dynamic Media integration, and Cloud Service CDN architecture.

@@ -1,10 +1,3 @@
----
-title: AEM Frontend Security Patterns
-impact: CRITICAL
-impactDescription: Security vulnerabilities in AEM frontends expose sites to XSS, CSRF, clickjacking, and data theft — often with legal and compliance consequences
-tags: security, xss, csrf, htl, csp, cors, dispatcher, cug, clickjacking, cookies, json, sling-servlet
----
-
 ## AEM Frontend Security Patterns
 
 AEM provides built-in security mechanisms through HTL display contexts, CSRF tokens, Dispatcher filters, and Sling-level protections. These patterns must be understood and applied consistently across custom components.

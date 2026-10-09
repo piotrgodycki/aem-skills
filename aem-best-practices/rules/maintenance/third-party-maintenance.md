@@ -1,10 +1,3 @@
----
-title: Third-Party Dependency Maintenance (Upgrades, CVEs, Integration Drift)
-impact: HIGH
-impactDescription: Neglected npm/Maven dependencies and drifting external integrations are the most common source of CVEs and silent production breakage in long-lived AEM projects.
-tags: dependencies, cve, security, npm, maven, integrations, upgrade, maintenance
----
-
 ## Third-Party Dependency Maintenance
 
 Long-lived AEM projects accumulate third-party dependencies (Maven for `core`, npm for `ui.frontend`) and external integrations (CRM, search, payment, analytics). This rule covers keeping them current and secure without destabilising the build. Spec-driven (`spec-driven-development.md`); treat security upgrades as their own PRs.

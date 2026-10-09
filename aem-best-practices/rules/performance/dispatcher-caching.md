@@ -1,10 +1,3 @@
----
-title: Dispatcher Caching for AEM Cloud Service
-impact: CRITICAL
-impactDescription: Proper dispatcher configuration can reduce origin load by 90%+ and improve TTFB by 5-10x for cached content
-tags: dispatcher, caching, cache-invalidation, statfileslevel, filter, ttl, sdi, sling-dynamic-include, esi, vanity-urls, cloud-service, apache, cdn
----
-
 ## Dispatcher Caching for AEM Cloud Service
 
 The Dispatcher is the Apache HTTP Server-based caching and load-balancing layer between the CDN and AEM Publish. In Cloud Service, the Dispatcher configuration is immutable and deployed via Cloud Manager pipelines.

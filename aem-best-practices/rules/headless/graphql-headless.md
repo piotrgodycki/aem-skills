@@ -1,10 +1,3 @@
----
-title: GraphQL & Headless Content Delivery
-impact: HIGH
-impactDescription: Correct GraphQL patterns enable CDN caching and prevent performance degradation — POST queries bypass CDN entirely, and unoptimized queries can bring down publish instances
-tags: graphql, content-fragments, headless, persisted-queries, api, caching, filtering, pagination, sdk
----
-
 ## GraphQL & Headless Content Delivery
 
 AEM provides a GraphQL API for Content Fragments. Persisted queries are the recommended approach for production — they execute via GET and are CDN-cacheable. POST queries bypass CDN entirely.

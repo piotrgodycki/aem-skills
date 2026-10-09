@@ -1,10 +1,3 @@
----
-title: AEM Headless SDK & Framework Integration
-impact: HIGH
-impactDescription: Proper SDK usage and framework integration patterns determine performance, cacheability, and reliability of headless frontends
-tags: headless, sdk, react, nextjs, vue, svelte, authentication, cors, images, caching
----
-
 ## AEM Headless SDK & Framework Integration
 
 AEM provides official SDKs for JavaScript, React, and Next.js to consume Content Fragment data via persisted GraphQL queries. External frontends must handle authentication, CORS, image delivery, and multi-environment configuration correctly.

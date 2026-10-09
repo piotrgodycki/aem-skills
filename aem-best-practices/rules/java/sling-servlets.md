@@ -1,10 +1,3 @@
----
-title: Sling Servlet Development Patterns
-impact: HIGH
-impactDescription: Sling Servlets expose HTTP endpoints — incorrect patterns cause security vulnerabilities, resource resolution failures, and poor API design
-tags: sling-servlets, resource-types, url-decomposition, json-api, csrf, filters, post, get
----
-
 ## Sling Servlet Development Patterns
 
 Sling Servlets handle HTTP requests in AEM. They bind to resource types (preferred) or paths, process requests, and return responses. Understanding Sling's URL decomposition and resource resolution is essential for correct servlet binding.

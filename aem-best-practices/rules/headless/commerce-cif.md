@@ -1,10 +1,3 @@
----
-title: AEM Commerce and CIF Integration Framework
-impact: MEDIUM
-impactDescription: CIF provides the commerce integration layer for AEM — incorrect patterns cause slow catalog pages, stale product data, and broken checkout flows
-tags: commerce, cif, graphql, adobe-commerce, magento, product-teaser, catalog, venia, cif-core-components
----
-
 ## AEM Commerce and CIF Integration Framework
 
 The Commerce Integration Framework (CIF) connects AEM to commerce backends (Adobe Commerce/Magento, third-party) via GraphQL. CIF Core Components provide ready-to-use product display, catalog navigation, search, and cart functionality.

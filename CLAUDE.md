@@ -14,7 +14,7 @@ aem-skills/
 ├── CLAUDE.md              # This file
 ├── README.md              # Project overview, file tree, installation
 ├── aem-best-practices/
-│   ├── SKILL.md           # Skill manifest (name, description, allowed-tools, rules list)
+│   ├── SKILL.md           # Lean router: name + description + reference map
 │   └── rules/             # 66 rule files organized by category
 │       ├── build-pipeline/        # 9 files — Webpack, Cloud Manager, RDE, CTT, testing
 │       ├── component-development/ # 10 files — Core Components, dialogs, DAM, UE, Style System
@@ -37,18 +37,19 @@ aem-skills/
         └── performance/           # 2 files — RUM/TTFB, CDN config
 ```
 
+## Skill design
+
+Both skills use a lean-router structure:
+
+- **`SKILL.md` is a lean router.** Frontmatter is only `name` + `description`. The description is a context pointer — front-loaded, "Use when…", with distinct trigger branches and a one-line disambiguation against the sibling skill. The body is a short overview plus a **reference map**: each rule file listed with a one-line "reach when…" pointer, grouped by task.
+- **Rule files are disclosed reference** — no frontmatter. Progressive disclosure: the agent opens only the one or two files the task touches, never all 84 at once. The `##` heading is the title.
+- Write positively (state the target, don't ban the anti-pattern), keep one source of truth per fact, and cut no-ops the model already obeys by default.
+
 ## Rule File Format
 
-Every rule file follows this structure:
+Every rule file follows this structure (no YAML frontmatter):
 
 ```markdown
----
-title: Rule Title
-impact: HIGH | MEDIUM | CRITICAL
-impactDescription: One sentence explaining why this matters
-tags: comma, separated, tags
----
-
 ## Rule Title
 
 Introductory paragraph.
@@ -72,12 +73,10 @@ Introductory paragraph.
 - **Anti-patterns section**: Every rule file ends with common mistakes
 - **No frameworks in EDS**: Vanilla JS + modern CSS only for Edge Delivery Services
 - **Coral 3 only**: Never reference Coral 2 resource types in AEMaaCS rules
-- **YAML frontmatter**: Every rule file has `title`, `impact`, `impactDescription`, `tags`
+- **No frontmatter on rule files**: the `##` heading is the title; metadata lives in the SKILL.md reference map
 
 ## When Editing Rules
 
-- Keep the existing frontmatter format — do not change field names
-- Maintain the `impact` rating scale: `CRITICAL` > `HIGH` > `MEDIUM` > `LOW`
 - Include real, working code examples (Java, HTL, XML, JS, CSS as appropriate)
 - Show both correct and incorrect patterns for every major concept
 - End every file with an Anti-Patterns section
@@ -85,10 +84,9 @@ Introductory paragraph.
 
 ## When Adding New Rules
 
-1. Create the `.md` file in the appropriate `rules/` subdirectory
-2. Add the rule entry to the parent `SKILL.md` file
+1. Create the `.md` file in the appropriate `rules/` subdirectory (no frontmatter, start with `## Title`)
+2. Add a one-line "reach when…" pointer under the right group in the parent `SKILL.md` reference map
 3. Update `README.md` to reflect the new file in the tree and counts
-4. Follow the same frontmatter and section structure as existing files
 
 ## Installation (for users)
 

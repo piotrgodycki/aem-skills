@@ -1,10 +1,3 @@
----
-title: CDN Configuration for AEM Edge Delivery Services
-impact: HIGH
-impactDescription: EDS CDN configuration directly controls caching, invalidation, redirects, and security headers — mistakes cause stale content, broken domains, or security vulnerabilities
-tags: eds, cdn, caching, custom-domain, redirects, push-invalidation, headers, cors, csp, byo-cdn, aem-live, performance
----
-
 ## CDN Configuration for AEM Edge Delivery Services
 
 Edge Delivery Services uses its own CDN infrastructure (the aem.live / hlx.live delivery network) that is distinct from the Fastly CDN used by AEMaaCS Publish. Content flows through a push-based invalidation model where publishing automatically purges the CDN.

@@ -1,10 +1,3 @@
----
-title: Dynamic Dialog Data with Granite DataSources
-impact: HIGH
-impactDescription: DataSources power dynamic select options, autocomplete suggestions, and context-aware field population — essential for scalable dialog design
-tags: dialog, datasource, granite-datasource, select, dynamic-options, servlet, sling, jcr-query, tags, pages, dam
----
-
 ## Dynamic Dialog Data with Granite DataSources
 
 Granite DataSources provide a server-side mechanism for dynamically populating dialog field options (select dropdowns, radio groups, checkboxes, autocomplete lists) from JCR content, external APIs, or computed values.

@@ -1,10 +1,3 @@
----
-title: Third-Party Service Integration with EDS
-impact: HIGH
-impactDescription: Third-party scripts are the #1 cause of poor Lighthouse scores — incorrect loading patterns destroy LCP, CLS, and INP on otherwise fast EDS sites
-tags: eds, third-party, analytics, crm, chat, payment, social, consent, gtm, facade-pattern, delayed-js, performance
----
-
 ## Third-Party Service Integration with EDS
 
 Every third-party script is a performance tax. EDS achieves 100 Lighthouse because it starts with zero dependencies. The loading strategy (eager, lazy, delayed) determines whether a third-party integration helps or hurts.

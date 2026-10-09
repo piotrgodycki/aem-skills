@@ -1,10 +1,3 @@
----
-title: Tailwind CSS for AEM
-impact: HIGH
-impactDescription: Tailwind in AEM requires careful integration with the ClientLib pipeline, HTL templating, and Core Component BEM classes to avoid style conflicts and bloated bundles
-tags: tailwind, css, aem, utility-first, clientlibs, htl, purge, jit, webpack, postcss
----
-
 ## Tailwind CSS for AEM
 
 Tailwind CSS brings utility-first styling to AEM projects. Integration requires PostCSS in the `ui.frontend` Webpack pipeline, proper content scanning for purging, and a clear strategy for coexisting with Core Component BEM classes.

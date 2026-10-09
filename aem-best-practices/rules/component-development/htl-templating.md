@@ -1,10 +1,3 @@
----
-title: HTL (HTML Template Language) Best Practices
-impact: CRITICAL
-impactDescription: HTL is the mandatory server-side template language for AEM — incorrect usage causes XSS vulnerabilities, rendering failures, and performance degradation
-tags: htl, sightly, xss, templating, data-sly, use-api, sling-models, expressions
----
-
 ## HTL (HTML Template Language) Best Practices
 
 HTL (formerly Sightly) is the preferred and recommended server-side template system for HTML in Adobe Experience Manager. It compiles into Java Servlets, with expressions and block statements evaluated entirely server-side.

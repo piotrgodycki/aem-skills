@@ -1,10 +1,3 @@
----
-title: ui.frontend Module Structure & Build Pipeline
-impact: HIGH
-impactDescription: Correct module structure prevents build failures and enables frontend pipeline deployment
-tags: webpack, scss, typescript, build, ui.frontend, clientlib-generator, frontend-pipeline
----
-
 ## ui.frontend Module Structure & Build Pipeline
 
 The `ui.frontend` module is the central location for all frontend resources. It uses Webpack to bundle JS/CSS/SCSS/TS and `aem-clientlib-generator` to deploy compiled assets into `ui.apps` ClientLibs.

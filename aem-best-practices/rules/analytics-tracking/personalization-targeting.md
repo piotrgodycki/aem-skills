@@ -1,10 +1,3 @@
----
-title: Personalization and Targeting
-impact: HIGH
-impactDescription: Correct personalization architecture prevents caching conflicts, avoids layout flicker, ensures privacy compliance, and delivers measurable uplift without degrading page performance
-tags: personalization, targeting, contexthub, adobe-target, segments, audiences, experience-fragments, caching, privacy, a-b-testing
----
-
 ## Personalization and Targeting
 
 AEM Cloud Service provides two complementary personalization engines: ContextHub (native AEM segmentation and client-side context) and Adobe Target (advanced testing, AI-driven optimization, and enterprise audience management). Frontend developers must understand both to implement performant, cache-friendly, privacy-respecting personalized experiences.

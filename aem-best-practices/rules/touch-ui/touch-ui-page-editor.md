@@ -1,10 +1,3 @@
----
-title: Touch UI Page Editor Customization
-impact: HIGH
-impactDescription: Page editor extensions control how authors interact with components — incorrect patterns break editing workflows
-tags: page-editor, layers, toolbar, overlays, granite-author, events, authoring, editor
----
-
 ## Touch UI Page Editor Customization
 
 The AEM page editor is a layered system with distinct frames, overlays, and extension points. All customizations go in `/apps` using overlays or clientlib hooks.

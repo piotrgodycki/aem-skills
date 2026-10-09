@@ -1,10 +1,3 @@
----
-title: Edge Delivery Services Testing & Quality Assurance
-impact: HIGH
-impactDescription: EDS sites must maintain a perfect Lighthouse score of 100 — testing and linting failures block pull request merges and degrade site performance
-tags: edge-delivery, eds, testing, lighthouse, eslint, stylelint, playwright, accessibility, visual-regression, rum, aem-cli, blocks, quality
----
-
 ## Edge Delivery Services Testing & Quality Assurance
 
 EDS enforces quality through automated linting, PageSpeed Insights checks on every pull request, and Real User Monitoring in production. Every EDS site can and should achieve a perfect Lighthouse score of 100.

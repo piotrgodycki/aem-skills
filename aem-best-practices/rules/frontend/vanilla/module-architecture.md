@@ -1,10 +1,3 @@
----
-title: Vanilla JS Module Architecture for AEM
-impact: HIGH
-impactDescription: Proper module organization prevents global scope pollution, enables code splitting, and makes AEM ClientLibs maintainable at scale
-tags: vanilla-js, es-modules, dynamic-import, clientlibs, architecture, barrel-exports, dependency-injection
----
-
 ## Vanilla JS Module Architecture for AEM
 
 Organize vanilla JavaScript for AEM using ES modules, dynamic imports for code splitting, and a clear dependency structure that works within the AEM ClientLib pipeline.

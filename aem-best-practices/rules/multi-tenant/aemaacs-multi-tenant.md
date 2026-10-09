@@ -1,10 +1,3 @@
----
-title: AEMaaCS Multi-Tenant / Multi-Site Architecture
-impact: HIGH
-impactDescription: Multi-tenant patterns define content isolation, code reuse, and governance across brands/regions in AEM Cloud Service
-tags: aem, aemaacs, multi-tenant, multi-site, msm, live-copy, blueprint, clientlibs, i18n, dispatcher, osgi, templates
----
-
 ## AEMaaCS Multi-Tenant / Multi-Site Architecture
 
 AEM Cloud Service supports multi-site deployments but does not offer true multi-tenancy. Environment configurations and system resources are always shared across all sites deployed on an environment. Careful architectural planning is required for content isolation, code organization, and governance.

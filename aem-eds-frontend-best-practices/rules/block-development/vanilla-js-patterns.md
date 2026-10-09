@@ -1,10 +1,3 @@
----
-title: Vanilla JavaScript Patterns for EDS Block Development
-impact: HIGH
-impactDescription: EDS blocks rely on vanilla JS exclusively — using correct patterns directly impacts performance, maintainability, and Lighthouse scores
-tags: eds, vanilla-js, dom-manipulation, events, async, performance, blocks, patterns
----
-
 ## Vanilla JavaScript Patterns for EDS Block Development
 
 EDS blocks use vanilla JavaScript exclusively — no frameworks, no jQuery, no build step. Every pattern here is chosen for EDS block context: scoped DOM manipulation inside a `decorate(block)` function, performance-first loading, and modern browser targets.

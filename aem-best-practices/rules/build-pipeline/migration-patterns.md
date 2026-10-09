@@ -1,10 +1,3 @@
----
-title: Frontend Migration Patterns (6.5 to Cloud Service)
-impact: CRITICAL
-impactDescription: Migration errors cause build failures, broken components, and runtime exceptions that block Cloud Service deployment
-tags: migration, htl, jsp, classic-ui, touch-ui, coral3, core-components, dialog-conversion, repository-modernizer, bpa, cloud-service
----
-
 ## Frontend Migration Patterns
 
 Migrating frontend code to AEM Cloud Service requires addressing JSP-to-HTL conversion, Classic UI dialog modernization, Foundation-to-Core-Component replacement, and Cloud Service architectural constraints. Use AEM Modernization Tools and Best Practices Analyzer to automate where possible.

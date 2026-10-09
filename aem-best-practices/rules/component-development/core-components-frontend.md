@@ -1,10 +1,3 @@
----
-title: Core Components Frontend Patterns
-impact: CRITICAL
-impactDescription: Core Components are the foundation of AEM sites — incorrect customization breaks upgrades and voids support
-tags: core-components, bem, css, proxy-component, htl, sling-model, delegation, customization
----
-
 ## Core Components Frontend Patterns
 
 AEM Core Components provide production-ready, extensible components. Their CSS classes follow BEM naming with a `cmp-` namespace and are considered the stable API for styling. Never modify Core Components directly — always proxy.

@@ -1,10 +1,3 @@
----
-title: Universal Editor Instrumentation
-impact: HIGH
-impactDescription: Universal Editor replaces the deprecated SPA Editor — correct instrumentation is required for new AEM projects
-tags: universal-editor, data-attributes, authoring, spa-editor-replacement
----
-
 ## Universal Editor Instrumentation
 
 The Universal Editor is Adobe's replacement for the deprecated SPA Editor (deprecated 2025.01). It works with any web framework via HTML data attributes — no SDK lock-in required.

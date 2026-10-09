@@ -1,10 +1,3 @@
----
-title: Cloud Manager CI/CD and Deployment
-impact: HIGH
-impactDescription: Cloud Manager is the sole deployment path to AEM as a Cloud Service — misconfigured pipelines cause failed deployments, skipped quality gates, and environment drift
-tags: cloud-manager, ci-cd, pipelines, deployment, quality-gates, environments, frontend-pipeline, aio-cli
----
-
 ## Cloud Manager CI/CD and Deployment
 
 Cloud Manager is the only way to deploy code to AEM as a Cloud Service. There is no direct package installation on author/publish. Understanding pipeline types, quality gates, and environment management is essential for reliable delivery.

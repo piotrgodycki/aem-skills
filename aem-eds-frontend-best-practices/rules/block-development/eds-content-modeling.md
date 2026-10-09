@@ -1,10 +1,3 @@
----
-title: EDS Content Modeling & Block Definitions
-impact: HIGH
-impactDescription: Correct content models determine how blocks render and how authors interact with content in Universal Editor
-tags: eds, content-model, block-definition, json, fields, filters, universal-editor
----
-
 ## EDS Content Modeling & Block Definitions
 
 Block definitions, content models, and filters are defined as JSON fragments in `_<blockname>.json` files within each block folder. These are compiled into root-level `component-definition.json`, `component-models.json`, and `component-filters.json` by the Husky pre-commit hook.

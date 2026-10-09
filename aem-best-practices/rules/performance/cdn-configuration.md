@@ -1,10 +1,3 @@
----
-title: CDN Configuration for AEM as a Cloud Service
-impact: HIGH
-impactDescription: Correct CDN configuration reduces latency by serving content from edge nodes, offloads origin traffic, and provides security filtering — misconfigurations cause cache misses, security gaps, or downtime
-tags: cdn, fastly, caching, waf, traffic-filter, redirects, esi, custom-domain, byocdn, edge, purge, headers, cloud-manager, performance
----
-
 ## CDN Configuration for AEM as a Cloud Service
 
 AEM as a Cloud Service includes an Adobe-managed CDN (powered by Fastly) that is automatically provisioned with every program. All traffic to AEM Publish flows through this CDN. Customers may optionally place their own CDN in front of Adobe's CDN (BYOCDN).

@@ -1,10 +1,3 @@
----
-title: Adobe Client Data Layer (ACDL) — Complete Implementation Guide
-impact: HIGH
-impactDescription: Incorrect data layer implementation causes missing analytics data, broken tag management, lost conversion tracking, and unreliable reporting across the entire site
-tags: acdl, data-layer, analytics, adobe-launch, tags, google-tag-manager, tracking, events, core-components, sling-models, htl, javascript, spa, debugging
----
-
 ## Adobe Client Data Layer (ACDL) — Complete Implementation Guide
 
 The Adobe Client Data Layer (ACDL) is the canonical data layer for AEM as a Cloud Service. It is a JSON-based, event-driven, component-scoped state manager that lives at `window.adobeDataLayer`. Every analytics integration in AEM should read from and write to this layer.

@@ -1,133 +1,104 @@
 ---
 name: aem-best-practices
-description: AEM as a Cloud Service (AEMaaCS) full-stack development guidelines, with AEM 6.5 / Classic differences annotated — 66 rule files from a senior expert full-stack AEM developer perspective. Covers ui.frontend Webpack, Core Components BEM, ClientLibs, HTL, Sling Models, Lombok, Style System, Touch UI (Coral UI 3, page editor, RTE, editConfig, dialogs, overlays, policies, custom widgets, DataSources), Universal Editor, component architecture, accessibility/SEO, DAM/Assets (microservices, processing profiles, Asset Compute, metadata), Adobe Client Data Layer (ACDL), personalization/targeting, security, user management/ACLs, responsive grid, GraphQL, Content/Experience Fragments, headless SDK (React/Next.js/Vue/Svelte), OpenAPI/Events, Commerce/CIF, multi-tenant/MSM, Cloud Manager CI/CD, RDE, Content Transfer Tool, CDN (Fastly, BYOCDN, WAF, ESI), Dispatcher caching, Dynamic Media, query optimization, frontend performance, testing, Adaptive Forms, AEM Workflows, Sling Servlets, OSGi services/schedulers, migration patterns, Vanilla JS (Web Components, ES modules, event architecture), Alpine.js (reactive HTL, stores), Tailwind CSS (AEM integration, BEM coexistence, Style System), SCSS domain-driven structure, fe-aem-server (local HTL dev), third-party backend integrations (HTTP clients, circuit breakers, caching), and a maintenance workflow for existing repos (spec-driven development, codebase audit/quality, core/frontend/backend/third-party maintenance). Not for Edge Delivery Services — use aem-eds-frontend-best-practices for EDS blocks.
-license: MIT
-metadata:
-  author: community
-  version: "5.0.0"
-  argument-hint: <file-or-pattern>
-allowed-tools: Read Glob Grep Bash Edit Write
+description: Full-stack Adobe Experience Manager. Use when writing or reviewing AEM code — Sling Models, HTL, Core Components, Touch UI dialogs, OSGi, DAM, headless/GraphQL, Dispatcher/CDN, Cloud Manager — on AEM as a Cloud Service or AEM 6.5/Classic. Not for Edge Delivery Services blocks; use aem-eds-frontend-best-practices for those.
 ---
 
-# AEMaaCS — Full-Stack Development Best Practices
+# AEM Full-Stack Best Practices
 
-> **You are a senior expert full-stack AEM developer.** Apply these 66 rules with deep understanding of AEM internals, OSGi, Sling, JCR, and the full Adobe stack. When writing code, follow enterprise-grade patterns with proper error handling, logging, and performance awareness. Prioritize maintainability, Core Component reuse, and Cloud Service compatibility.
+Production-grade patterns for Adobe Experience Manager, written for a senior full-stack engineer who knows OSGi, Sling, and the JCR. Each reference file carries the correct pattern, the incorrect one beside it, and the anti-patterns that bite in production.
 
-66 rule files covering every aspect of full-stack development on Adobe Experience Manager as a Cloud Service. Rules target **AEMaaCS** by default; where behaviour differs on **AEM 6.5 / Classic (on-prem/AMS)** the relevant file carries an `### AEM 6.5 / Classic differences` section.
+Default target is **AEMaaCS** (Cloud Service). Where behaviour differs on **AEM 6.5 / Classic** (on-prem/AMS), the file says so in an `AEM 6.5 / Classic differences` section — read it before shipping to those versions.
 
-> **Not for Edge Delivery Services** — if you are working with EDS blocks (`/blocks/`), vanilla JS/CSS, or the XWalk boilerplate, use the `aem-eds-frontend-best-practices` skill instead.
+## How to use this skill
 
-## Rules
+This is reference, not a sequence. Open the one or two files that bear on the task **before** writing code, apply the pattern, then move on. Match the surrounding code's idiom over the examples here when they conflict. Reach only for what the task touches — a dialog change needs `touch-ui/`, not the whole skill.
 
-### Build Pipeline & Dev Workflow (`rules/build-pipeline/`)
-- `ui-frontend-structure.md` — Webpack pipeline (common/dev/prod configs), module organization, SCSS/TypeScript, aem-clientlib-generator, frontend pipeline vs full-stack, local proxy dev server
-- `clientlibs-configuration.md` — ClientLibrary folders, `allowProxy`, manifests, HTL, dependencies vs embedding
-- `frontend-dev-workflow.md` — Local SDK setup, proxy dev server, HMR, ClientLib debugging, Cloud Manager pipeline, Jest testing, Git workflow
-- `osgi-frontend-config.md` — Externalizer, Sling Mapping, CORS, Referrer Filter, HTML Library Manager, Sling Rewriter, environment variables, Repo Init
-- `testing-quality.md` — Sling Model unit tests (AEM Mocks), Jest/JSDOM, Cypress/Playwright e2e, Cloud Manager quality gates, visual regression, accessibility CI
-- `migration-patterns.md` — JSP→HTL, Classic→Touch UI, 6.5→Cloud Service, Coral 2→3, Foundation→Core Components, BPA findings
-- `cloud-manager-deployment.md` — Pipeline types (full-stack, frontend-only, config, web-tier), quality gates, environment variables/secrets, blue-green deployment, rollback, AIO CLI, Dispatcher validation
-- `rapid-dev-environments.md` — RDE setup, AIO CLI commands, bundle/package/config deployment, log tailing, RDE vs local SDK vs pipeline, iteration workflow
-- `content-transfer-tool.md` — CTT architecture (extraction/ingestion), BPA integration, migration sets, user mapping, incremental extraction, Cloud Acceleration Manager, post-migration validation
+Coral 3 only: never emit Coral 2 resource types. Core Component reuse before custom. Cloud Service compatibility (no ECMA workflow scripts, microservice asset processing) unless the task is explicitly 6.5.
 
-### Component Development (`rules/component-development/`)
-- `core-components-frontend.md` — BEM naming (`cmp-` prefix), proxy pattern (complete structure), CSS customization strategies (BEM targeting, Style System, context scoping), Sling Model delegation, JS hooks, component versioning/upgrades
-- `component-dialogs.md` — Complete Granite UI field type reference (text, number, select, radio, checkbox, path, date, color, tag pickers), dialog XML template, simple/composite multifield, field validation, conditional visibility (show/hide), layout types, naming conventions
-- `style-system.md` — Layout vs display styles (detailed), CSS organization pattern (base/layout/display), policy XML configuration, multi-style combinations, common style patterns (container, title, teaser), Design Dialog migration
-- `dam-asset-patterns.md` — Asset microservices architecture, processing profiles (image/video), custom Asset Compute workers, metadata schemas, Smart Tags, web-optimized image delivery (AssetDelivery API), Asset Selector UI, Connected Assets
-- `universal-editor-aemaacs.md` — UE architecture, data-aue-* instrumentation (resource, type, prop, label, model, filter), content types, container setup, component model JSON definitions, Remote SPA editing, CORS configuration, UE vs Page Editor migration, extension points
-- `htl-templating.md` — All block statements, expression language, XSS display contexts, Use-API patterns, global objects
-- `component-architecture.md` — Hierarchy (foundation→core→proxy→custom), containers, versioning, decoration tags, WCM modes, error handling
-- `spa-editor.md` — React/Angular SPA SDK, MapTo, ModelManager, Remote SPA, routing (deprecated — migration guidance)
-- `accessibility-seo.md` — WCAG 2.1 AA, ARIA in HTL, heading hierarchy, SEO meta/sitemap/JSON-LD, hreflang
-- `forms-adaptive.md` — Adaptive Forms Core Components v3, theming, rule editor, submission actions, prefill, reCAPTCHA, FDM
+## Reference map
 
-### Java & Backend (`rules/java/`)
-- `sling-models-frontend.md` — Annotations, injection, JSON export, delegation, multifield, @PostConstruct, testing with AEM Mocks
-- `lombok-best-practices.md` — @Getter/@Slf4j/@Builder with Sling Models, why @Data breaks @Model, Lombok + OSGi services, Jackson integration, lombok.config, safety matrix
-- `aem-workflows.md` — WorkflowProcess interface, custom process steps, launchers (event types, exclude lists), transient workflows, payload handling (JCR/DAM), ParticipantStepChooser, workflow metadata, programmatic management, Cloud Service differences
-- `sling-servlets.md` — @SlingServletResourceTypes vs @SlingServletPaths, GET/POST/PUT handling, URL decomposition (selectors, extensions, suffix), JSON responses, CSRF protection, servlet filters, resource resolution order, service user mapping
-- `osgi-services-schedulers.md` — DS annotations (@Component, @Reference, @Designate), OSGi configuration (run-mode specific, factory configs), Sling Schedulers, Sling Jobs (cluster-safe), ResourceChangeListener, EventHandler, service ranking, service users, health checks
-- `third-party-integrations.md` — Pooled HTTP clients (Apache HttpClient 5), integration service pattern, circuit breaker, response caching with TTL, stale-while-revalidate, environment-specific OSGi configs, Cloud Manager secrets, Sling Model integration, async/parallel API calls, webhook receivers, error handling strategy, MockWebServer testing
+**Build, deploy, and dev workflow** — reach when setting up the pipeline, ClientLibs, or CI/CD:
+- `rules/build-pipeline/ui-frontend-structure.md` — Webpack pipeline, module layout, SCSS/TS, aem-clientlib-generator, frontend-only vs full-stack pipeline
+- `rules/build-pipeline/clientlibs-configuration.md` — ClientLibrary folders, `allowProxy`, manifests, dependencies vs embedding
+- `rules/build-pipeline/frontend-dev-workflow.md` — local SDK, proxy dev server, HMR, ClientLib debugging, Jest, Git flow
+- `rules/build-pipeline/osgi-frontend-config.md` — Externalizer, Sling Mapping, CORS, Referrer Filter, Rewriter, env vars, Repo Init
+- `rules/build-pipeline/testing-quality.md` — AEM Mocks unit tests, Jest/JSDOM, Cypress/Playwright e2e, Cloud Manager quality gates
+- `rules/build-pipeline/cloud-manager-deployment.md` — pipeline types, quality gates, env vars/secrets, blue-green, rollback, AIO CLI
+- `rules/build-pipeline/rapid-dev-environments.md` — RDE setup, AIO CLI, bundle/package/config deploy, log tail, RDE vs local SDK vs pipeline
+- `rules/build-pipeline/content-transfer-tool.md` — CTT migration, extraction/ingestion, top-up, checksums
+- `rules/build-pipeline/migration-patterns.md` — JSP→HTL, Classic→Touch UI, 6.5→Cloud, Coral 2→3, Foundation→Core Components, BPA findings
 
-### Analytics & Tracking (`rules/analytics-tracking/`)
-- `adobe-data-layer.md` — ACDL architecture, full JSON state schema, **pushing data from Java/Sling Models** (ComponentData, DataLayerBuilder), **pushing from HTL** (data-cmp-data-layer), **pushing from JavaScript** (adobeDataLayer.push()), 9 custom event implementations (clicks, forms, video, carousel, tabs, accordion, search, errors, scroll depth), Adobe Launch/Tags integration, GTM bridge, debug mode
-- `personalization-targeting.md` — ContextHub, Adobe Target (at.js / Web SDK), experience targeting, flicker prevention, caching conflicts, consent/privacy
+**Component development** — reach when building or editing a component:
+- `rules/component-development/component-architecture.md` — proxy components, Core Component delegation, resource-type inheritance, model structure
+- `rules/component-development/core-components-frontend.md` — Core Component BEM, decoration, data attributes, ClientLib categories
+- `rules/component-development/htl-templating.md` — HTL expressions, context, `data-sly-*`, resolving models, template libraries
+- `rules/component-development/component-dialogs.md` — dialog structure, tabs, field basics (deep Touch UI fields live in `touch-ui/`)
+- `rules/component-development/style-system.md` — policy-driven style classes, `cq:styleGroups`, author-selectable variants
+- `rules/component-development/universal-editor-aemaacs.md` — Universal Editor instrumentation, `data-aue-*`, remote/local rendering
+- `rules/component-development/spa-editor.md` — SPA Editor, JSON model API, editable React/Angular containers
+- `rules/component-development/dam-asset-patterns.md` — DAM microservices, processing profiles, Asset Compute, metadata, renditions
+- `rules/component-development/accessibility-seo.md` — semantic markup, ARIA, structured data, heading order
+- `rules/component-development/forms-adaptive.md` — Adaptive Forms, rules, submit actions, Forms as a Cloud Service
 
-### Touch UI Authoring (`rules/touch-ui/`)
-- `coral-ui-granite-frontend.md` — Coral UI 3 Web Components API, `Coral.commons.ready()`, Granite utilities, foundation events
-- `touch-ui-page-editor.md` — Editor architecture, `Granite.author` namespace, events, layers, toolbar extension
-- `edit-config-behavior.md` — `cq:editConfig`, toolbar actions, `cq:dropTargets`, `cq:inplaceEditing`, `cq:listeners`, `cq:htmlTag`
-- `rte-configuration.md` — 16 RTE plugins, toolbar config, dialog vs inplace, paraformat, styles, paste rules
-- `dialog-clientlibs-patterns.md` — Authoring clientlib categories, `dialog-ready` events, show/hide, validation API
-- `dialog-advanced-fields.md` — Pathfield, file upload, tag picker, XF/CF pickers, color picker, nested multifield, `granite:rendercondition`
-- `dialog-custom-widgets.md` — Custom Granite UI fields (JSP/HTL), field validation, event lifecycle, pre-save transforms
-- `dialog-datasources.md` — DataSource servlets, dynamic select options, parameter passing, caching
-- `sling-resource-merger-overlays.md` — `/apps` overlays, Merger properties, overlay vs override
-- `templates-page-properties-policies.md` — Editable templates, content policies, design dialog, page properties extension
-- `security-patterns.md` — XSS prevention (HTL contexts), CSRF tokens, CSP headers, CUG, Dispatcher filters, CORS
-- `user-management-acls.md` — IMS integration (Adobe Admin Console), product profiles, Repo Init for permissions (ACLs, service users, groups), principal-based access control (Oak restrictions), CUG for gated content, token-based authentication, permission debugging
+**Touch UI / Granite authoring** — reach when building dialogs, widgets, RTE, overlays, or ACLs:
+- `rules/touch-ui/coral-ui-granite-frontend.md` — Coral 3 resource types, Granite UI foundations, dialog chrome
+- `rules/touch-ui/touch-ui-page-editor.md` — page editor, editables, drop targets, listeners
+- `rules/touch-ui/dialog-advanced-fields.md` — multifields, nested fields, pathfields, tag pickers, validation
+- `rules/touch-ui/dialog-custom-widgets.md` — custom Granite widgets, clientlib-backed fields, render conditions
+- `rules/touch-ui/dialog-datasources.md` — dynamic dropdowns, servlet DataSources, ACS Commons generic lists
+- `rules/touch-ui/dialog-clientlibs-patterns.md` — `cq.authoring.dialog` clientlibs, dialog-ready JS, field dependencies
+- `rules/touch-ui/rte-configuration.md` — RTE plugins, paste rules, inline styles, custom toolbar
+- `rules/touch-ui/edit-config-behavior.md` — `cq:editConfig`, drop targets, in-place editing, listeners
+- `rules/touch-ui/sling-resource-merger-overlays.md` — overlays via `/apps`, Sling Resource Merger, `sling:hideResource`
+- `rules/touch-ui/templates-page-properties-policies.md` — editable templates, structure/initial, policies, page properties
+- `rules/touch-ui/security-patterns.md` — XSS in HTL/JS, CSRF, secure dialog data, clickjacking
+- `rules/touch-ui/user-management-acls.md` — users/groups, ACLs, Repo Init, service users, closed user groups
 
-### Layout (`rules/layout/`)
-- `responsive-grid.md` — Breakpoints (max 3, configurable), grid CSS classes (span, offset, hide, newline), Layout Container configuration, container nesting rules, template-level layout policy, custom breakpoint CSS generation, responsive images
+**Java backend** — reach when writing Sling Models, servlets, OSGi services, or integrations:
+- `rules/java/sling-models-frontend.md` — Sling Model structure, injectors, `@PostConstruct`, exporter, null-safety
+- `rules/java/lombok-best-practices.md` — Lombok with Sling Models, `@Getter`, `@Slf4j`, pitfalls
+- `rules/java/sling-servlets.md` — servlet registration by path vs resource type, selectors, SlingSafeMethods
+- `rules/java/osgi-services-schedulers.md` — OSGi R7 DS, config via OCD, schedulers, service users
+- `rules/java/aem-workflows.md` — Granite Workflow, process steps, launchers, transient workflows, Cloud vs on-prem
+- `rules/java/third-party-integrations.md` — HTTP clients, connection pools, circuit breakers, caching, resilience
 
-### Headless & Content Delivery (`rules/headless/`)
-- `graphql-headless.md` — Persisted queries (creation, execution, caching), complete filter operators (string/number/date/null), pagination (offset and cursor-based), parameterized queries, nested fragment references, web-optimized image delivery (_dynamicUrl), AEM Headless SDK (JS/React/Next.js ISR), CORS config, performance optimization
-- `content-fragments.md` — CF Models (all field types), variations, versioning, HTL rendering, delivery APIs, AEM Eventing
-- `experience-fragments.md` — XF vs CF, building blocks, variations, Target export, caching (SDI)
-- `headless-sdk-frameworks.md` — JS/React/Next.js/Vue/Svelte SDKs, auth, CORS, image delivery, multi-environment
-- `openapi-events.md` — CF OpenAPI (CRUD + delivery), AEM Eventing (webhooks, I/O Runtime), event-driven ISR
-- `commerce-cif.md` — CIF architecture (Core Components + GraphQL connector), Adobe Commerce/Magento integration, product/category pickers, CIF URL provider, product data enrichment, cart/checkout, catalog caching, multi-store/multi-currency
+**Headless & commerce** — reach when delivering content to external apps:
+- `rules/headless/graphql-headless.md` — GraphQL API, persisted queries, caching, filtering
+- `rules/headless/content-fragments.md` — CF models, variations, references, fragment composition
+- `rules/headless/experience-fragments.md` — XF variations, templates, export to targets
+- `rules/headless/headless-sdk-frameworks.md` — AEM Headless SDK with React/Next.js/Vue/Svelte
+- `rules/headless/openapi-events.md` — AEM OpenAPIs, Adobe I/O Events, webhooks
+- `rules/headless/commerce-cif.md` — Commerce Integration Framework, CIF components, GraphQL to commerce backend
 
-### Multi-Tenant (`rules/multi-tenant/`)
-- `aemaacs-multi-tenant.md` — MSM/Live Copy, content architecture, frontend theming, templates, Sling CAConfig, i18n, URL mapping
+**Analytics & personalization** — reach when wiring tracking or targeting:
+- `rules/analytics-tracking/adobe-data-layer.md` — ACDL, event schema, computed state, component data push
+- `rules/analytics-tracking/personalization-targeting.md` — Target, offers, audiences, context hub, segmentation
 
-### Performance (`rules/performance/`)
-- `cloud-performance.md` — Multi-tier CDN architecture (browser → Fastly → Origin Shield → Dispatcher → AEM), Cache-Control/Surrogate-Control strategies per content type, stale-while-revalidate patterns, immutable ClientLib URLs, cache invalidation (automatic + programmatic + CDN purge), auto-scaling, CDN hit ratio monitoring, Vary header optimization
-- `cdn-configuration.md` — Adobe CDN (Fastly) config as code (YAML), BYOCDN setup, traffic filter/WAF rules, CDN redirects, ESI, custom domains, log forwarding
-- `frontend-optimization.md` — Critical CSS, CWV, capo.js head order, RUM vs Lighthouse, TTFB (<800ms), HTTP/3, cookie consent via GTM, Speculation Rules, bfcache
-- `dynamic-media-assets.md` — Smart crops, image presets, URL modifiers, Smart Imaging, responsive delivery, WOID, video, viewers
-- `query-optimization.md` — QueryBuilder, JCR-SQL2, Oak indexes, slow query detection, N+1 prevention
-- `dispatcher-caching.md` — Cache rules, statfileslevel, filters, TTL, flush agents, SDI, personalization, debugging
+**Performance** — reach when the task is caching, CDN, queries, or page speed:
+- `rules/performance/dispatcher-caching.md` — Dispatcher cache rules, invalidation, auto-flush, stat levels
+- `rules/performance/cdn-configuration.md` — CDN at the edge, Fastly, BYOCDN, WAF, ESI, cache headers
+- `rules/performance/cloud-performance.md` — Cloud Service perf model, request coalescing, resource budgets
+- `rules/performance/query-optimization.md` — JCR/Oak queries, indexes (`oak:index`), traversal limits
+- `rules/performance/dynamic-media-assets.md` — Dynamic Media, Smart Imaging, image/video delivery, hotlinking
+- `rules/performance/frontend-optimization.md` — critical CSS, lazy load, ClientLib splitting, Core Web Vitals
 
-### Frontend — CSS & Dev Tools (`rules/frontend/`)
+**Frontend (AEM-native)** — reach when writing SCSS/JS for server-rendered AEM (not EDS):
+- `rules/frontend/scss-domain-structure.md` — domain-driven SCSS structure, BEM, tokens
+- `rules/frontend/tailwind-aem.md` — Tailwind in AEM, BEM coexistence, Style System integration, purge config
+- `rules/frontend/alpine-js-aem.md` — Alpine.js in HTL, reactive directives, stores, hydration
+- `rules/frontend/fe-aem-server.md` — fe-aem-server for local HTL rendering without a running AEM
+- `rules/frontend/vanilla/web-components-aem.md` — custom elements hydrating Core Component markup
+- `rules/frontend/vanilla/module-architecture.md` — ES module structure, ClientLib loading, tree-shaking boundaries
+- `rules/frontend/vanilla/event-architecture.md` — event delegation, custom events, pub/sub, teardown
 
-> **Scope note:** AEM full-stack frontend is HTL + ClientLibs + progressive-enhancement JS. These rules cover the AEM-native toolchain only. For SPA/headless React, see `headless/headless-sdk-frameworks.md` and `component-development/spa-editor.md`. For React SPAs decoupled from AEM, use a general React skill — generic React/Preact app patterns are intentionally out of scope here.
+**Layout & multi-tenant:**
+- `rules/layout/responsive-grid.md` — Layout Container, responsive grid, breakpoints, emulator
+- `rules/multi-tenant/aemaacs-multi-tenant.md` — MSM, live copies, rollout config, blueprints, i18n
 
-- `scss-domain-structure.md` — Domain-driven SCSS folder structure, global variables, barrel imports, Core Component overrides, responsive mixins, multi-tenant theming, Webpack integration
-- `tailwind-aem.md` — Tailwind CSS in AEM: PostCSS/Webpack setup, prefix strategy for BEM coexistence, HTL usage, Style System integration, `@tailwindcss/typography` for RTE, CSS custom properties bridge, production purging
-- `alpine-js-aem.md` — Alpine.js for AEM: installation via ClientLib, reactive HTL patterns (accordion, tabs, search, modal), Alpine.store for cross-component state, plugin ecosystem, author mode handling
-- `fe-aem-server.md` — `@kele23/fe-aem-server` local HTL dev server: setup, mock content JSON, Webpack/Vite integration, project structure mirroring AEM JCR, development workflow, limitations
-
-### Frontend — Vanilla JS (`rules/frontend/vanilla/`)
-- `web-components-aem.md` — Custom Elements for AEM, Shadow DOM with AEM styles, slots for HTL content projection, Coral UI interop, form-associated custom elements, AEM dialog integration
-- `module-architecture.md` — ES module organization, dynamic import for AEM ClientLibs, feature modules, pub/sub event bus, dependency injection lite, barrel exports for vanilla JS
-- `event-architecture.md` — Custom events with typed detail, event delegation patterns, AbortController cleanup, cross-component communication, integration with ACDL, decoupled pub/sub bus
-
-### Maintenance & Spec-Driven Workflow (`rules/maintenance/`)
-
-> For working on **existing** AEM repositories — auditing, extending, upgrading, and refactoring rather than greenfield. Start with `spec-driven-development.md`.
-
-- `spec-driven-development.md` — Entry-point workflow: AUDIT → SPEC → CONFIRM → IMPLEMENT → VERIFY → REVIEW; spec template, executable acceptance criteria, scope/non-goals, blast radius, smallest-change discipline
-- `codebase-audit-quality.md` — Module layout map, detecting AEMaaCS vs 6.5 target, learning repo conventions, quality baseline (aemanalyser / Cloud Manager gate / SonarQube), tech-debt map
-- `core-platform-maintenance.md` — AEM SDK / uber-jar bumps, Core Components version upgrades (proxy re-pointing), OSGi dependency hygiene, run-mode configs, broad verification
-- `frontend-maintenance.md` — ClientLib/bundle audit, stable BEM markup contracts, CSS debt removal, bundle hygiene, verifying against RUM field data
-- `backend-maintenance.md` — Refactoring behind stable Sling Model/JSON contracts, retiring deprecated APIs, resource/session hygiene, measured perf fixes, tests as acceptance criteria
-- `third-party-maintenance.md` — Dependency inventory (provided vs compile), CVE triage (npm audit / OWASP), upgrade discipline, external integration drift, verifying upgrades
-
-## Key Principles
-
-1. **You are a senior AEM expert** — write production-grade code, not tutorials
-2. **RUM over Lighthouse** — field data (CrUX/RUM) is what Google ranks
-3. **TTFB < 800ms** — maximize CDN hits, `stale-while-revalidate`, target <200ms AEM response
-4. **Never modify Core Components** — proxy + BEM targeting
-5. **Coral 3 only** — never Coral 2 resource types
-6. **@Getter + @Slf4j on Sling Models** — never @Data (breaks injection)
-7. **HTL display contexts** — never `@context='unsafe'`
-8. **Push to ACDL from Sling Models** — implement ComponentData, use DataLayerBuilder
-9. **Persisted GraphQL queries** in production — POST bypasses CDN
-10. **Cookie consent via GTM** — load async, not in `<head>`
-11. **HTL + progressive enhancement** — AEM frontend is server-rendered HTL; add behaviour with vanilla JS / Alpine, not a client-side SPA framework
-12. **Know your deployment target** — AEMaaCS by default; check the `### AEM 6.5 / Classic differences` section before applying Cloud-only patterns (RDE, Asset Microservices, auto-scaling CDN) on 6.5
-13. **Performance is measurable** — use webpack-bundle-analyzer, Dispatcher/CDN hit-ratio, and RUM field data
-14. **Spec before code on existing repos** — audit, write a testable spec with acceptance criteria, confirm scope, then make the smallest change (`maintenance/spec-driven-development.md`)
+**Maintenance (existing repos)** — reach when auditing or evolving a codebase you didn't build:
+- `rules/maintenance/spec-driven-development.md` — spec-first change workflow for brownfield AEM
+- `rules/maintenance/codebase-audit-quality.md` — auditing an inherited repo: structure, debt, risk map
+- `rules/maintenance/core-platform-maintenance.md` — platform/version upkeep, deprecations, SDK bumps
+- `rules/maintenance/frontend-maintenance.md` — frontend debt, ClientLib sprawl, dependency hygiene
+- `rules/maintenance/backend-maintenance.md` — Java/OSGi debt, deprecated APIs, bundle health
+- `rules/maintenance/third-party-maintenance.md` — third-party dependency and integration upkeep

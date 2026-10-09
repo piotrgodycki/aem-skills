@@ -1,10 +1,3 @@
----
-title: AEM Assets and DAM Patterns
-impact: HIGH
-impactDescription: Asset microservices replace custom DAM workflows on Cloud Service — incorrect patterns cause missing renditions, slow delivery, and wasted compute
-tags: dam, assets, microservices, processing-profiles, metadata, renditions, smart-tags, asset-compute, connected-assets
----
-
 ## AEM Assets and DAM Patterns
 
 AEM as a Cloud Service processes assets via Asset Microservices (not DAM Update Asset workflow). Custom renditions require Asset Compute workers. Understanding the cloud-native asset pipeline is essential for proper DAM implementation.
